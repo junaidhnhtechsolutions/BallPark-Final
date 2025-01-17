@@ -2,9 +2,9 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./service.css";
 import Particles from "../../components/ui/particles";
-import { FaBasketballBall, FaProjectDiagram } from "react-icons/fa";
+import { FaBasketballBall, FaHistory, FaProjectDiagram } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import { FaListUl, FaRProject } from "react-icons/fa6";
+import { FaListUl } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 const Service = () => {
@@ -53,7 +53,7 @@ const Service = () => {
                 to={"/post-project"}
                 className="flex flex-col justify-center items-center"
               >
-                <FaRProject className="text-6xl mb-4 text-white" />
+                <FaHistory className="text-6xl mb-4 text-white" />
                 <h3 className="stylish-text">Past Project</h3>
               </Link>
             </motion.div>
