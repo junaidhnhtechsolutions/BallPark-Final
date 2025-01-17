@@ -19,7 +19,7 @@ const Service = () => {
           refresh
         />
 
-        <div className="grid md:grid-cols-2 w-full gap-10 container md:px-20">
+        <div className="grid md:grid-cols-2 w-full gap-10 container md:px-20 mx-auto">
           <motion.div
             className="bg-[#00083c] h-96 rounded-2xl flex justify-center items-center"
             whileHover={{ scale: 1.05 }}

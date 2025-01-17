@@ -358,17 +358,18 @@ const MaterialComponent = ({
           (materialFilter[index]?.length > 0 ? 1 : 0) +
           (materialCategorySet[index]?.length > 0 ? 1 : 0) +
           (materialCategoryNameNew[index]?.length > 0 ? 1 : 0);
+        const gridClass = `md:grid-cols-${totalSelects === 1 ? 1 : totalSelects === 2 ? 2 : totalSelects === 3 ? 3 : totalSelects === 4 ? 4 : ''}`;
 
-        console.log(totalSelects, "totalSelects");
+        console.log({ totalSelects, gridClass }, "totalSelects");
 
         return (
           <>
             <div
               key={index}
-              className={`grid relative md:grid-cols-${totalSelects}  gap-4 mb-4`}
+              className={`grid relative ${gridClass}  gap-4 mb-4`}
+              id="material-none-pdf"
             >
-              {/* First Select */}
-              <div className={`${getColumnSize(totalSelects)} col-span-1`}>
+              <div className={`${getColumnSize(totalSelects)}`}>
                 <select
                   className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                   value={
@@ -398,7 +399,6 @@ const MaterialComponent = ({
                 )}
               </div>
 
-              {/* Second Select */}
               {materialFilter[index]?.length > 0 && (
                 <div className={getColumnSize(totalSelects)}>
                   <select
@@ -426,7 +426,6 @@ const MaterialComponent = ({
                 </div>
               )}
 
-              {/* Third Select */}
               {materialCategorySet[index]?.length > 0 && (
                 <div className={getColumnSize(totalSelects)}>
                   <select
@@ -455,7 +454,6 @@ const MaterialComponent = ({
                 </div>
               )}
 
-              {/* Fourth Select */}
               {materialCategoryNameNew[index]?.length > 0 && (
                 <div className={getColumnSize(totalSelects)}>
                   <select
@@ -481,6 +479,8 @@ const MaterialComponent = ({
                 </div>
               )}
             </div>
+
+
             {/* Additional details */}
 
             {materialCategoryName[index]?.length > 0 &&

@@ -10,7 +10,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import MaterialComponent from "./MaterialComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus} from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Particles from "../../components/ui/particles";
 import { FaArrowLeft, FaEdit } from "react-icons/fa";
 import SubStructure from "./SubStructure";
@@ -75,8 +75,8 @@ const StartQuote = () => {
       name === "freestylecost" && value === ""
         ? ""
         : name === "freestylecost"
-        ? +value
-        : value;
+          ? +value
+          : value;
     setInputFields(fields);
   };
 
@@ -162,13 +162,13 @@ const StartQuote = () => {
         data: editedData.primary_estimate.data.map((item, idx) =>
           idx === itemIndex
             ? {
-                ...item,
-                dimension: item.dimension.map((part, pIdx) =>
-                  pIdx === partIndex
-                    ? { ...part, [field]: parseFloat(value) }
-                    : part
-                ),
-              }
+              ...item,
+              dimension: item.dimension.map((part, pIdx) =>
+                pIdx === partIndex
+                  ? { ...part, [field]: parseFloat(value) }
+                  : part
+              ),
+            }
             : item
         ),
       },
@@ -212,9 +212,16 @@ const StartQuote = () => {
       await axios.delete(`${BaseUrl.baseurlImage}DeleteCostEstimate/`, {
         data: formData,
         headers: { Authorization: `Bearer ${token}` },
-      });
+      }).then((response) => {
+        console.log(response, 'response');
+        Swal.fire({
+          title: response?.data?.message,
+          icon: "success",
+        });
+        setSelectedProject(null);
+        setSelectSubStructure(false);
+      })
       setLoading(false);
-      navigate("/");
     } catch (error) {
       setLoading(false);
       console.error("Error deleting:", error);
@@ -229,7 +236,6 @@ const StartQuote = () => {
   );
   const handleGeneratePDF = async () => {
     const { freestyle } = inputValues;
-
     // Check if any freestyle or freestylecost field is empty
     if (selectedValues === "Internal use") {
       if (
@@ -369,10 +375,6 @@ const StartQuote = () => {
       select.forEach((select) => (select.style.display = "flex"));
       buttons.forEach((button) => (button.style.display = "flex"));
 
-      // Show the freestyle field again after the PDF is generated
-      // if (freestyleElement) {
-      //   freestyleElement.style.display = "block"; // or "inline-block" based on your layout needs
-      // }
       setFormData({
         projectName: "",
         date: "",
@@ -484,16 +486,15 @@ const StartQuote = () => {
             setInputValues({});
             setInputFields([]);
           }}
-          className="flex flex-row w-10/12 justify-between space-x-4 border rounded-2xl mt-5"
+          className="flex flex-row w-10/12 justify-between space-x-4 border rounded-2xl mt-5 bg-white"
         >
           <Tab
             eventKey="Past Project"
             title="Past Project"
-            tabClassName={`w-full register text-lg font-medium w-full p-3 rounded-2xl text-center ${
-              key === "Past Project"
-                ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
-                : "text-black"
-            }`}
+            tabClassName={`w-full register text-lg font-medium w-full p-3 rounded-2xl flex justify-center text-center ${key === "Past Project"
+              ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
+              : "text-black"
+              }`}
           >
             {key === "Past Project" && (
               <>
@@ -548,9 +549,8 @@ const StartQuote = () => {
                           </>
                         )}
                       <button
-                        className={`w-full bg-red-600 mt-4 flex justify-center items-center text-white rounded-xl py-3 ${
-                          loading ? "disabled" : ""
-                        }`}
+                        className={`w-full bg-red-600 mt-4 flex justify-center items-center text-white rounded-xl py-3 ${loading ? "disabled" : ""
+                          }`}
                         type="button"
                         onClick={handleDelete}
                         disabled={loading}
@@ -572,9 +572,8 @@ const StartQuote = () => {
                       </button>
                       <div className="flex justify-end items-end">
                         <button
-                          className={`w-20 bg-red-600 my-4 flex justify-center items-center text-white rounded-xl py-3   ${
-                            editMode ? "btn-danger" : "btn-primary"
-                          }`}
+                          className={`w-20 bg-red-600 my-4 flex justify-center items-center text-white rounded-xl py-3   ${editMode ? "btn-danger" : "btn-primary"
+                            }`}
                           onClick={() => setEditMode((prev) => !prev)}
                         >
                           {editMode ? (
@@ -664,45 +663,45 @@ const StartQuote = () => {
                                     {item?.dimension?.some(
                                       (part) => part?.Height
                                     ) && (
-                                      <th class="border border-gray-300 px-4 py-2 text-left">
-                                        Height
-                                      </th>
-                                    )}
+                                        <th class="border border-gray-300 px-4 py-2 text-left">
+                                          Height
+                                        </th>
+                                      )}
                                     {item?.dimension?.some(
                                       (part) => part?.Width
                                     ) && (
-                                      <th class="border border-gray-300 px-4 py-2 text-left">
-                                        Width
-                                      </th>
-                                    )}
+                                        <th class="border border-gray-300 px-4 py-2 text-left">
+                                          Width
+                                        </th>
+                                      )}
                                     {item?.dimension?.some(
                                       (part) => part?.Length
                                     ) && (
-                                      <th class="border border-gray-300 px-4 py-2 text-left">
-                                        Length
-                                      </th>
-                                    )}
+                                        <th class="border border-gray-300 px-4 py-2 text-left">
+                                          Length
+                                        </th>
+                                      )}
                                     {item?.dimension?.some(
                                       (part) => part?.Area
                                     ) && (
-                                      <th class="border border-gray-300 px-4 py-2 text-left">
-                                        Area
-                                      </th>
-                                    )}
+                                        <th class="border border-gray-300 px-4 py-2 text-left">
+                                          Area
+                                        </th>
+                                      )}
                                     {item?.dimension?.some(
                                       (part) => part?.Count
                                     ) && (
-                                      <th class="border border-gray-300 px-4 py-2 text-left">
-                                        Count
-                                      </th>
-                                    )}
+                                        <th class="border border-gray-300 px-4 py-2 text-left">
+                                          Count
+                                        </th>
+                                      )}
                                     {item?.dimension?.some(
                                       (part) => part?.Volume
                                     ) && (
-                                      <th class="border border-gray-300 px-4 py-2 text-left">
-                                        Volume
-                                      </th>
-                                    )}
+                                        <th class="border border-gray-300 px-4 py-2 text-left">
+                                          Volume
+                                        </th>
+                                      )}
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -870,7 +869,7 @@ const StartQuote = () => {
                               ).map((key, index) => {
                                 const value =
                                   editedData?.secondary_estimate?.Calculations[
-                                    key
+                                  key
                                   ];
                                 return (
                                   <>
@@ -1084,9 +1083,8 @@ const StartQuote = () => {
                       </div>
                       {editMode && (
                         <button
-                          className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center ${
-                            loading1 ? "disabled" : ""
-                          }`}
+                          className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center ${loading1 ? "disabled" : ""
+                            }`}
                           type="submit"
                           onClick={handleSave}
                           disabled={loading1}
@@ -1135,11 +1133,10 @@ const StartQuote = () => {
           <Tab
             eventKey="Off the Shelf"
             title="Off the Shelf"
-            tabClassName={`w-ful register text-lg font-medium w-full p-3 rounded-2xl text-center flex justify-center items-center ${
-              key === "Off the Shelf"
-                ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
-                : "text-black"
-            }`}
+            tabClassName={`w-ful register text-lg font-medium w-full p-3 rounded-2xl text-center flex justify-center items-center ${key === "Off the Shelf"
+              ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
+              : "text-black"
+              }`}
           >
             {key === "Off the Shelf" && (
               <div id="Off-the-Shelf">
@@ -1214,13 +1211,6 @@ const StartQuote = () => {
                               &nbsp;{formData?.shipToAddress}
                             </p>
                           </div>
-                          {/* <th
-                            style={{
-                              borderBottom: "1px solid black",
-                              width: "98.8%",
-                            }}
-                            className="ms-2"
-                          /> */}
                         </div>
                       )}
                     <MaterialComponent
@@ -1330,11 +1320,10 @@ const StartQuote = () => {
           <Tab
             eventKey="Ballpark 2.0 Pictures"
             title="Ballpark 2.0 Pictures"
-            tabClassName={`w-ful register text-lg font-medium w-full p-3 rounded-2xl text-center flex justify-center items-center ${
-              key === "Ballpark 2.0 Pictures"
-                ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
-                : "text-black"
-            }`}
+            tabClassName={`w-ful register text-lg font-medium w-full p-3 rounded-2xl text-center flex justify-center items-center ${key === "Ballpark 2.0 Pictures"
+              ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
+              : "text-black"
+              }`}
           >
             {key === "Ballpark 2.0 Pictures" && (
               <p className="text-center text-white mt-5 text-2xl font-bold">

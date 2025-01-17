@@ -147,7 +147,7 @@ const ResulteData = () => {
                         ))}
                       </tbody>
                     </table>
-                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300 mt-4">
                       <thead className="bg-gray-100">
                         <tr>
                           {item?.cost?.Area && (

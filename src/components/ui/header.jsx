@@ -1,13 +1,14 @@
 import gsap from "gsap";
 import TransitionLink from "../TransitionLink";
 import ToggleSwitch from "./hamburger";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "../../lib/utils";
 import { Link } from "react-router-dom";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const token = localStorage.getItem("token");
+  const menuRef = useRef(null);
 
   useEffect(() => {
     if (open) {
@@ -29,13 +30,26 @@ export default function Header() {
     }
   }, [open]);
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleShowLogout = () => {
     localStorage.clear();
     window.location.href = "/login";
   };
 
   return (
-    <div className="fixed z-40 w-full  ">
+    <div className="fixed z-40 w-full">
       <div className="w-[80%]  mx-auto bg-transparent text-white h-10">
         <div className="font-signika absolute items-center text-xs top-4 flex justify-between w-[80%] logo text-center bg-transparent tracking-widest uppercase leading-[50px] font-bold">
           <div>{/*  */}</div>
@@ -68,6 +82,7 @@ export default function Header() {
             </div>
 
             <div
+              ref={menuRef}
               className={cn(
                 "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] top-1 right-10  z-[99999]",
                 open ? "w-full md:w-[50%] lg:w-[30%]  " : "w-0 h-0 "

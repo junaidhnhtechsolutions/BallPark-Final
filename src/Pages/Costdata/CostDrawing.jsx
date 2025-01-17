@@ -86,7 +86,7 @@ const CostDrawing = () => {
       inputRef.current.click();
     }
     setLines([]);
-    setIsCropImage(true);
+    // setIsCropImage(true);
   };
 
   const onChange = (e) => {
@@ -105,6 +105,7 @@ const CostDrawing = () => {
       setImage(reader.result);
     };
     reader?.readAsDataURL(files[0]);
+    setIsCropImage(true);
   };
 
   const getimgdata = () => {
@@ -279,9 +280,8 @@ const CostDrawing = () => {
             type="text"
             value={inputValues[index]}
             onChange={(e) => handleInputChange(e, index)}
-            className={`border rounded px-2 py-1 text-black ${
-              inputValues[index] ? "border-blue-600" : "border-red-600"
-            }`}
+            className={`border rounded px-2 py-1 text-black ${inputValues[index] ? "border-blue-600" : "border-red-600"
+              }`}
             style={{
               width: `${inputBoxWidth}px`,
               textAlign: "left",
@@ -452,7 +452,7 @@ const CostDrawing = () => {
               ?.includes(
                 "The given image is not related to construction or manufacturing materials."
               );
-            console.log(message , 'message');
+            console.log(message, 'message');
             if (checkImage) {
               Swal.fire({
                 title: message,
@@ -948,6 +948,7 @@ const CostDrawing = () => {
                   </div>
                 </>
               )}
+              {console.log(isCropImage, 'isCropImage')}
               {isCropImage && (
                 <>
                   <div className="d-grid gap-4">
