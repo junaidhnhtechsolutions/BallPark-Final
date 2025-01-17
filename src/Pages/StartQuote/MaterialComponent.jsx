@@ -358,18 +358,19 @@ const MaterialComponent = ({
           (materialFilter[index]?.length > 0 ? 1 : 0) +
           (materialCategorySet[index]?.length > 0 ? 1 : 0) +
           (materialCategoryNameNew[index]?.length > 0 ? 1 : 0);
-        const gridClass = `md:grid-cols-${totalSelects === 1 ? 1 : totalSelects === 2 ? 2 : totalSelects === 3 ? 3 : totalSelects === 4 ? 4 : ''}`;
 
-        console.log({ totalSelects, gridClass }, "totalSelects");
+        console.log({ selectedOption, selectedOptionmaterial, selectedOptionmaterialca, selectedOptionmaterialsub }, '  selectedOption selectedOption')
+
 
         return (
           <>
             <div
               key={index}
-              className={`grid relative ${gridClass}  gap-4 mb-4`}
+              className={`flex relative gap-4 mb-4 w-100`}
               id="material-none-pdf"
             >
-              <div className={`${getColumnSize(totalSelects)}`}>
+              {/* First Select */}
+              <div className={`${getColumnSize(totalSelects)} w-full`}>
                 <select
                   className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                   value={
@@ -399,8 +400,9 @@ const MaterialComponent = ({
                 )}
               </div>
 
+              {/* Second Select */}
               {materialFilter[index]?.length > 0 && (
-                <div className={getColumnSize(totalSelects)}>
+                <div className={`${getColumnSize(totalSelects)} w-full`}>
                   <select
                     className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                     onChange={(event) =>
@@ -426,8 +428,9 @@ const MaterialComponent = ({
                 </div>
               )}
 
+              {/* Third Select */}
               {materialCategorySet[index]?.length > 0 && (
-                <div className={getColumnSize(totalSelects)}>
+                <div className={`${getColumnSize(totalSelects)} w-full`}>
                   <select
                     className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                     onChange={(event) =>
@@ -454,8 +457,9 @@ const MaterialComponent = ({
                 </div>
               )}
 
+              {/* Fourth Select */}
               {materialCategoryNameNew[index]?.length > 0 && (
-                <div className={getColumnSize(totalSelects)}>
+                <div className={`${getColumnSize(totalSelects)} w-full`}>
                   <select
                     className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                     onChange={(event) => handleSelectMaterialName(event, index)}
@@ -479,8 +483,6 @@ const MaterialComponent = ({
                 </div>
               )}
             </div>
-
-
             {/* Additional details */}
 
             {materialCategoryName[index]?.length > 0 &&

@@ -133,45 +133,71 @@ const ResultDrawing = () => {
 
             {estimateSections?.secondary_estimate?.Calculations && (
               <>
-                <div className="p-4 bg-white border rounded mb-4 shadow-lg">
-                  {estimateSections?.secondary_estimate?.Calculations && (
-                    <>
-                      <h2 className="font-bold text-dark mb-4">Sub Structure:</h2>
-                      <p>
-                        <strong>Plan:</strong> {estimateSections?.secondary_estimate.Plan}
-                      </p>
-                    </>
-                  )}
-                  <div>
-                    {estimateSections?.secondary_estimate?.Calculations &&
-                      Object.keys(estimateSections?.secondary_estimate?.Calculations).length > 0
-                      ? Object.keys(estimateSections?.secondary_estimate?.Calculations).map((key, index) => {
-                        const value = estimateSections?.secondary_estimate?.Calculations[key];
-                        return (
-                          <div key={index}>
-                            <strong>{key}:</strong>
-                            <div>
+                <div className="p-4 bg-white border rounded-lg mb-6 shadow-sm">
+                  <h2 className="font-bold text-lg text-gray-900 mb-4">
+                    Sub Structure:{" "}
+                    {
+                      Object.keys(
+                        estimateSections?.secondary_estimate?.Calculations
+                      )[0]
+                    }
+                  </h2>
+                  <p className="text-gray-700">
+                    <strong>Plan:</strong>{" "}
+                    {estimateSections?.secondary_estimate.Plan}
+                  </p>
+                  <div className="mt-4">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <tbody>
+                        {Object.keys(
+                          estimateSections?.secondary_estimate?.Calculations || {}
+                        ).map((key, index) => {
+                          const value =
+                            estimateSections?.secondary_estimate?.Calculations[
+                            key
+                            ];
+                          return (
+                            <tr key={index}>
                               {typeof value === "object" ? (
-                                Object.keys(value)?.map((subKey, subIndex) => (
-                                  <p key={subIndex}>
-                                    <strong>{subKey}:</strong> {value[subKey]}
-                                  </p>
-                                ))
+                                <table className="min-w-full table-auto border-collapse border border-gray-300">
+                                  <tbody>
+                                    {Object.keys(value)?.map(
+                                      (subKey, subIndex) => (
+                                        <tr
+                                          key={subIndex}
+                                          className="hover:bg-gray-50"
+                                        >
+                                          <td className="border border-gray-300 px-4 py-2 font-semibold text-gray-800">
+                                            {subKey}
+                                          </td>
+                                          <td className="border border-gray-300 px-4 py-2 text-gray-700">
+                                            {value[subKey]}
+                                          </td>
+                                        </tr>
+                                      )
+                                    )}
+                                  </tbody>
+                                </table>
                               ) : (
-                                <span>{value}</span>
+                                <span className="text-gray-700">{value}</span>
                               )}
-                            </div>
-                          </div>
-                        );
-                      })
-                      : null}
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-                <h2 className="p-4 font-bold bg-white text-lg">
-                  <strong className="font-semibold text-dark">Total Combined Cost:</strong> {estimateSections?.total_combined_cost}
-                </h2>
+
+                {estimateSections?.total_combined_cost && (
+                  <h2 className="p-4 font-bold bg-white rounded-lg border text-gray-800">
+                    <strong>Total Combined Cost:</strong>{" "}
+                    {estimateSections?.total_combined_cost}
+                  </h2>
+                )}
               </>
             )}
+
           </div>
         </motion.div>
       </div>

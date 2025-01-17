@@ -933,7 +933,7 @@ const CostDrawing = () => {
                             role="status"
                             aria-hidden="true"
                           ></span>{" "}
-                          Generating...
+                          Estimating...
                         </>
                       ) : (
                         "Generate Cost Estimate"
