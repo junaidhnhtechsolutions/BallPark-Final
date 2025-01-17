@@ -1,0 +1,441 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Signika:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*======================
+    404 page
+=======================*/
+.nav-item{
+  width: 100% !important;
+}
+.tab-content{
+  width: 84% !important;
+}
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: "Arvo", serif;
+}
+
+.page_404 img {
+  width: 100%;
+}
+
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+}
+.contant_box_404 {
+  margin-top: -50px;
+}
+
+/* New Css Code Start */
+
+
+html {
+  scroll-behavior: smooth;
+}
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+.gradient-background {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2b3c58; /* Deep blue text color for contrast */
+  font-size: 2rem;
+  font-weight: bold;
+
+  background: linear-gradient(270deg, #3b82f6, #000, #3b82f6, #add5f0);
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 25%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientBackgroundAnimation {
+  0% {
+    --gradient-background-start: #b3def2;
+    --gradient-background-end: #f1f6f8;
+  }
+  50% {
+    --gradient-background-start: #ff007a;
+    --gradient-background-end: #b3def2;
+  }
+  100% {
+    --gradient-background-start: #b3def2;
+    --gradient-background-end: #f1f6f8;
+  }
+}
+/* from-[#00083c] via-[#73cddd] */
+/* From Uiverse.io by vinodjangid07 */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  display: none;
+}
+.switch {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+.wrapper {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s;
+}
+.row {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.row-bottom {
+  align-items: flex-end;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+.row-horizontal {
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+.row-vertical {
+  position: absolute;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.switch:hover .wrapper .row-horizontal {
+  width: 100px;
+}
+.switch:hover .wrapper .row-vertical {
+  height: 100px;
+}
+
+.switch:hover .wrapper .row-vertical .middle-dot {
+  border-radius: 5px;
+  height: 35px;
+}
+.switch:hover .wrapper .row-horizontal .middle-dot-horizontal {
+  border-radius: 5px;
+  width: 35px;
+}
+.switch input:checked + .wrapper {
+  transform: rotate(45deg) scale(1.2);
+}
+.switch input:checked + .wrapper .row-vertical {
+  height: 100px;
+}
+.switch input:checked + .wrapper .row-horizontal {
+  width: 100px;
+}
+
+.switch input:checked + .wrapper .row-vertical .middle-dot {
+  border-radius: 5px;
+  height: 35px;
+}
+.switch input:checked + .wrapper .row-horizontal .middle-dot-horizontal {
+  border-radius: 5px;
+  width: 35px;
+}
+
+/* Section Container */
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 100vh;
+  background: linear-gradient(to right, #f1f6f8, #b3def2);
+  position: relative;
+  padding-left: 100px; /* Space for the vertical line */
+}
+
+/* Vertical Line Container */
+.vertical-line-container {
+  position: absolute;
+  left: 50%;
+  top: 16%;
+  height: 70%;
+  width: 10px;
+}
+
+/* Static Line */
+.vertical-line {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #cccccc; /* Static line color */
+}
+
+/* Shining Line (Animated) */
+.shining-line {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(transparent, #00083c, transparent);
+  background-size: 100% 300%;
+  animation: move-line 3s linear infinite, shine-line 1.5s ease-in-out infinite;
+}
+
+/* Line Movement */
+@keyframes move-line {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Line Shining Effect */
+@keyframes shine-line {
+  0%,
+  100% {
+    box-shadow: 0 0 10px 2px #fff;
+  }
+  50% {
+    box-shadow: 0 0 20px 4px #fff;
+  }
+}
+
+/* Content Section */
+.content {
+  margin-left: 150px; /* Space between content and line */
+}
+
+.content h1 {
+  font-size: 4rem;
+  color: #1b2978;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Parent container */
+.section-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00083c; /* Fallback background */
+}
+
+/* Moving background */
+.moving-bg {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #73cddd;
+  border-radius: 50%;
+  animation: moveRandom 5s linear infinite, shine 2s ease-in-out infinite;
+  z-index: 0;
+  box-shadow: 10px 10px 20px #73cddd, 10px 10px 40px #73cddd;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 50%;
+  color: #ffffff;
+}
+
+.content h1 {
+  font-size: 1.875rem; /* Tailwind equivalent to text-3xl */
+  text-transform: uppercase;
+}
+
+/* Keyframes for shine animation */
+@keyframes moveRandom {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20vw, 10vh);
+  }
+  50% {
+    transform: translate(-15vw, 30vh);
+  }
+  75% {
+    transform: translate(10vw, -20vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.hero_animation {
+  background-image: linear-gradient(
+    147.92deg,
+    hsla(0, 0%, 100%, 0) 10.41%,
+    #73cddd 89.25%
+  );
+  animation: changeBackgroundColor 8s infinite alternate;
+}
+.hero_animation_color {
+  background-color: #00083c;
+}
+
+@keyframes changeBackgroundColor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  16.67% {
+    opacity: 0.9;
+  }
+  33.33% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  66.67% {
+    opacity: 0.5;
+  }
+  83.33% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-color: #1b2978;
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #1b2978;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+.black-div {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #00083c;
+  z-index: 10;
+}
+
+.black-div.top {
+  top: 0;
+}
+
+.black-div.bottom {
+  bottom: 0;
+}
+
+.black-div.top,
+.black-div.bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background: #00083c;
+  z-index: 10;
+}
+
+.black-div.top {
+  top: 0;
+}
+
+.black-div.bottom {
+  bottom: 0;
+}
