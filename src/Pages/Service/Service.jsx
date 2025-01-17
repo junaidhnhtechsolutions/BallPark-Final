@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./service.css";
 import Particles from "../../components/ui/particles";
 import { FaBasketballBall, FaProjectDiagram } from "react-icons/fa";
@@ -8,6 +8,13 @@ import { FaListUl, FaRProject } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 const Service = () => {
+
+  const navigate = useNavigate();
+
+  const navigatePage = (url) => {
+    navigate(url);
+  }
+
   return (
     <>
       <div className="flex w-full items-center h-[100vh] bg-gradient-to-br from-[#00083c] via-[#73cddd] relative">
@@ -21,9 +28,10 @@ const Service = () => {
 
         <div className="grid md:grid-cols-2 w-full gap-10 container md:px-20 mx-auto">
           <motion.div
-            className="bg-[#00083c] h-96 rounded-2xl flex justify-center items-center"
+            className="bg-[#00083c] h-96 rounded-2xl flex justify-center items-center cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
+            onClick={() => navigatePage("/new-project")}
           >
             <Link
               to={"/new-project"}
@@ -36,9 +44,10 @@ const Service = () => {
 
           <div className="grid md:grid-cols-2 gap-5">
             <motion.div
-              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center"
+              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
+              onClick={() => navigatePage("/post-project")}
             >
               <Link
                 to={"/post-project"}
@@ -50,9 +59,10 @@ const Service = () => {
             </motion.div>
 
             <motion.div
-              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center"
+              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
+              onClick={() => navigatePage("/profile")}
             >
               <Link
                 to={"/profile"}
@@ -64,9 +74,10 @@ const Service = () => {
             </motion.div>
 
             <motion.div
-              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center"
+              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
+              onClick={() => navigatePage("/Ballpark-picture")}
             >
               <Link
                 to={"/Ballpark-picture"}
@@ -78,9 +89,10 @@ const Service = () => {
             </motion.div>
 
             <motion.div
-              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center"
+              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
+              onClick={() => navigatePage("/material-list")}
             >
               <Link
                 to={"/material-list"}

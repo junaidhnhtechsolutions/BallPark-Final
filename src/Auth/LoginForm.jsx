@@ -160,7 +160,7 @@ const LoginForm = () => {
         >
           <div className="login_register">
             <motion.div
-              className="flex justify-between space-x-4 w-full border rounded-2xl"
+              className="flex justify-between space-x-4 w-full border rounded-2xl bg-white"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}

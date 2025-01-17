@@ -107,37 +107,37 @@ export default function Header() {
                 </h4>
                 {token && (
                   <h4 className="h-8">
-                    <TransitionLink
-                      label="Dashboard"
-                      href="/dashboard"
-                      setOpen={setOpen}
-                      className="transition-all ease-out duration-200 hover:ml-4 p-2 rounded-sm hover:bg-[#1B2978] hover:text-white"
-                    />
+                    <Link
+                      className={cn("text-sm uppercase text-[#1B2978] font-Roboto transition-all ease-out duration-200 hover:ml-4 p-2 rounded-sm hover:bg-[#1B2978] hover:text-white")}
+                      to={'/dashboard'}
+                    >
+                      Dashboard
+                    </Link>
                   </h4>
                 )}
-                <h4 className="h-8  ">
-                  <TransitionLink
-                    label="Navigation Park"
-                    href="/navigating-park"
-                    setOpen={setOpen}
-                    className="transition-all ease-out duration-200 hover:ml-4 p-2 rounded-sm hover:bg-[#1B2978] hover:text-white"
-                  />
+                <h4 className="h-8 ">
+                  <Link
+                    className={cn("text-sm uppercase text-[#1B2978] font-Roboto transition-all ease-out duration-200 hover:ml-4 p-2 rounded-sm hover:bg-[#1B2978] hover:text-white")}
+                    to={'/navigating-park'}
+                  >
+                    Navigation Park
+                  </Link>
                 </h4>
                 <h4 className="h-8">
-                  <TransitionLink
-                    label="In the ball park 2.0"
-                    href="/ball-park"
-                    setOpen={setOpen}
-                    className="transition-all ease-out duration-200 hover:ml-4 p-2 rounded-sm hover:bg-[#1B2978] hover:text-white"
-                  />
+                  <Link
+                    className={cn("text-sm uppercase text-[#1B2978] font-Roboto transition-all ease-out duration-200 hover:ml-4 p-2 rounded-sm hover:bg-[#1B2978] hover:text-white")}
+                    to={'/ball-park'}
+                  >
+                    In the ball park 2.0
+                  </Link>
                 </h4>
                 <h4 className="h-8">
-                  <TransitionLink
-                    label="Contact Us"
-                    href="/contact-us"
-                    setOpen={setOpen}
-                    className="transition-all ease-out duration-200 hover:ml-4 p-2 rounded-sm hover:bg-[#1B2978] hover:text-white"
-                  />
+                  <Link
+                    className={cn("text-sm uppercase text-[#1B2978] font-Roboto transition-all ease-out duration-200 hover:ml-4 p-2 rounded-sm hover:bg-[#1B2978] hover:text-white")}
+                    to={'/contact-us'}
+                  >
+                    Contact Us
+                  </Link>
                 </h4>
               </div>
             </div>
