@@ -23,12 +23,14 @@ code {
 /*======================
     404 page
 =======================*/
-.nav-item{
+.nav-item {
   width: 100% !important;
 }
-.tab-content{
+
+.tab-content {
   width: 84% !important;
 }
+
 .page_404 {
   padding: 40px 0;
   background: #fff;
@@ -60,6 +62,7 @@ code {
   margin: 20px 0;
   display: inline-block;
 }
+
 .contant_box_404 {
   margin-top: -50px;
 }
@@ -70,6 +73,7 @@ code {
 html {
   scroll-behavior: smooth;
 }
+
 @layer base {
   :root {
     --radius: 0.5rem;
@@ -89,7 +93,8 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2b3c58; /* Deep blue text color for contrast */
+  color: #2b3c58;
+  /* Deep blue text color for contrast */
   font-size: 2rem;
   font-weight: bold;
 
@@ -102,12 +107,15 @@ body::-webkit-scrollbar {
   0% {
     background-position: 0% 50%;
   }
+
   25% {
     background-position: 100% 25%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   75% {
     background-position: 0% 50%;
   }
@@ -118,15 +126,18 @@ body::-webkit-scrollbar {
     --gradient-background-start: #b3def2;
     --gradient-background-end: #f1f6f8;
   }
+
   50% {
     --gradient-background-start: #ff007a;
     --gradient-background-end: #b3def2;
   }
+
   100% {
     --gradient-background-start: #b3def2;
     --gradient-background-end: #f1f6f8;
   }
 }
+
 /* from-[#00083c] via-[#73cddd] */
 /* From Uiverse.io by vinodjangid07 */
 .switch input {
@@ -135,6 +146,7 @@ body::-webkit-scrollbar {
   height: 0;
   display: none;
 }
+
 .switch {
   width: 35px;
   height: 35px;
@@ -144,6 +156,7 @@ body::-webkit-scrollbar {
   overflow: hidden;
   cursor: pointer;
 }
+
 .wrapper {
   width: 30px;
   height: 30px;
@@ -154,6 +167,7 @@ body::-webkit-scrollbar {
   position: relative;
   transition: all 0.2s;
 }
+
 .row {
   width: 100%;
   height: 50%;
@@ -161,9 +175,11 @@ body::-webkit-scrollbar {
   align-items: flex-start;
   justify-content: space-between;
 }
+
 .row-bottom {
   align-items: flex-end;
 }
+
 .dot {
   width: 8px;
   height: 8px;
@@ -171,6 +187,7 @@ body::-webkit-scrollbar {
   border-radius: 50%;
   transition: all 0.2s;
 }
+
 .row-horizontal {
   position: absolute;
   width: 100%;
@@ -180,6 +197,7 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   transition: all 0.2s;
 }
+
 .row-vertical {
   position: absolute;
   width: fit-content;
@@ -194,6 +212,7 @@ body::-webkit-scrollbar {
 .switch:hover .wrapper .row-horizontal {
   width: 100px;
 }
+
 .switch:hover .wrapper .row-vertical {
   height: 100px;
 }
@@ -202,25 +221,30 @@ body::-webkit-scrollbar {
   border-radius: 5px;
   height: 35px;
 }
+
 .switch:hover .wrapper .row-horizontal .middle-dot-horizontal {
   border-radius: 5px;
   width: 35px;
 }
-.switch input:checked + .wrapper {
+
+.switch input:checked+.wrapper {
   transform: rotate(45deg) scale(1.2);
 }
-.switch input:checked + .wrapper .row-vertical {
+
+.switch input:checked+.wrapper .row-vertical {
   height: 100px;
 }
-.switch input:checked + .wrapper .row-horizontal {
+
+.switch input:checked+.wrapper .row-horizontal {
   width: 100px;
 }
 
-.switch input:checked + .wrapper .row-vertical .middle-dot {
+.switch input:checked+.wrapper .row-vertical .middle-dot {
   border-radius: 5px;
   height: 35px;
 }
-.switch input:checked + .wrapper .row-horizontal .middle-dot-horizontal {
+
+.switch input:checked+.wrapper .row-horizontal .middle-dot-horizontal {
   border-radius: 5px;
   width: 35px;
 }
@@ -233,7 +257,8 @@ body::-webkit-scrollbar {
   height: 100vh;
   background: linear-gradient(to right, #f1f6f8, #b3def2);
   position: relative;
-  padding-left: 100px; /* Space for the vertical line */
+  padding-left: 100px;
+  /* Space for the vertical line */
 }
 
 /* Vertical Line Container */
@@ -251,7 +276,8 @@ body::-webkit-scrollbar {
   left: 0;
   width: 1px;
   height: 100%;
-  background-color: #cccccc; /* Static line color */
+  background-color: #cccccc;
+  /* Static line color */
 }
 
 /* Shining Line (Animated) */
@@ -270,6 +296,7 @@ body::-webkit-scrollbar {
   0% {
     background-position: 100% 0;
   }
+
   100% {
     background-position: 100% 100%;
   }
@@ -277,10 +304,12 @@ body::-webkit-scrollbar {
 
 /* Line Shining Effect */
 @keyframes shine-line {
+
   0%,
   100% {
     box-shadow: 0 0 10px 2px #fff;
   }
+
   50% {
     box-shadow: 0 0 20px 4px #fff;
   }
@@ -288,7 +317,8 @@ body::-webkit-scrollbar {
 
 /* Content Section */
 .content {
-  margin-left: 150px; /* Space between content and line */
+  margin-left: 150px;
+  /* Space between content and line */
 }
 
 .content h1 {
@@ -307,7 +337,8 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00083c; /* Fallback background */
+  background-color: #00083c;
+  /* Fallback background */
 }
 
 /* Moving background */
@@ -332,7 +363,8 @@ body::-webkit-scrollbar {
 }
 
 .content h1 {
-  font-size: 1.875rem; /* Tailwind equivalent to text-3xl */
+  font-size: 1.875rem;
+  /* Tailwind equivalent to text-3xl */
   text-transform: uppercase;
 }
 
@@ -341,49 +373,58 @@ body::-webkit-scrollbar {
   0% {
     transform: translate(0, 0);
   }
+
   25% {
     transform: translate(20vw, 10vh);
   }
+
   50% {
     transform: translate(-15vw, 30vh);
   }
+
   75% {
     transform: translate(10vw, -20vh);
   }
+
   100% {
     transform: translate(0, 0);
   }
 }
 
 .hero_animation {
-  background-image: linear-gradient(
-    147.92deg,
-    hsla(0, 0%, 100%, 0) 10.41%,
-    #73cddd 89.25%
-  );
+  background-image: linear-gradient(147.92deg,
+      hsla(0, 0%, 100%, 0) 10.41%,
+      #73cddd 89.25%);
   animation: changeBackgroundColor 8s infinite alternate;
 }
+
 .hero_animation_color {
   background-color: #00083c;
 }
 
 @keyframes changeBackgroundColor {
+
   0%,
   100% {
     opacity: 1;
   }
+
   16.67% {
     opacity: 0.9;
   }
+
   33.33% {
     opacity: 0.8;
   }
+
   50% {
     opacity: 0.6;
   }
+
   66.67% {
     opacity: 0.5;
   }
+
   83.33% {
     opacity: 0.4;
   }
@@ -393,9 +434,11 @@ body::-webkit-scrollbar {
   0% {
     border-color: #1b2978;
   }
+
   50% {
     border-color: transparent;
   }
+
   100% {
     border-color: #1b2978;
   }
@@ -439,3 +482,288 @@ body::-webkit-scrollbar {
 .black-div.bottom {
   bottom: 0;
 }
+
+/* Loader Generating Code Start */
+/* From Uiverse.io by Nawsome */
+.pl {
+  box-shadow: 2em 0 2em rgba(0, 0, 0, 0.2) inset, -2em 0 2em rgba(255, 255, 255, 0.1) inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: rotateX(30deg) rotateZ(45deg);
+  width: 260px;
+  height: 260px;
+  color: white;
+}
+
+.pl,
+.pl__dot {
+  border-radius: 50%;
+}
+
+/* Apply different colors to specific dots */
+.pl__dot.green {
+  background-color: green;
+}
+
+.pl__dot.red {
+  background-color: red;
+}
+
+.pl__dot.yellow {
+  background-color: yellow;
+}
+
+.pl__dot.blue {
+  background-color: blue;
+}
+
+.pl__dot {
+  animation-name: shadow724;
+  box-shadow: 0.1em 0.1em 0 0.1em white, 0.3em 0 0.3em rgba(0, 0, 0, 0.5);
+  top: calc(50% - 0.75em);
+  left: calc(50% - 0.75em);
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.pl__dot,
+.pl__dot:before,
+.pl__dot:after {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  position: absolute;
+}
+
+.pl__dot:before,
+.pl__dot:after {
+  content: "";
+  display: block;
+  left: 0;
+  width: inherit;
+  transition: background-color var(--trans-dur);
+}
+
+.pl__dot:before {
+  animation-name: pushInOut1724;
+  background-color: var(--bg);
+  border-radius: inherit;
+  box-shadow: 0.05em 0 0.1em white inset;
+  height: inherit;
+  z-index: 1;
+}
+
+.pl__dot:after {
+  animation-name: pushInOut2724;
+  background-color: var(--primary1);
+  border-radius: 0.75em;
+  box-shadow: 0.1em 0.3em 0.2em rgba(255, 255, 255, 0.4) inset, 0 -0.4em 0.2em #2e3138 inset, 0 -1em 0.25em rgba(0, 0, 0, 0.3) inset;
+  bottom: 0;
+  clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+  height: 3em;
+  transform: rotate(-45deg);
+  transform-origin: 50% 2.25em;
+}
+
+.pl__dot:nth-child(1) {
+  transform: rotate(0deg) translateX(5em) rotate(0deg);
+  z-index: 5;
+}
+
+.pl__dot:nth-child(1),
+.pl__dot:nth-child(1):before,
+.pl__dot:nth-child(1):after {
+  animation-delay: 0s;
+}
+
+.pl__dot:nth-child(2) {
+  transform: rotate(-30deg) translateX(5em) rotate(30deg);
+  z-index: 4;
+}
+
+.pl__dot:nth-child(2),
+.pl__dot:nth-child(2):before,
+.pl__dot:nth-child(2):after {
+  animation-delay: -0.1666666667s;
+}
+
+.pl__dot:nth-child(3) {
+  transform: rotate(-60deg) translateX(5em) rotate(60deg);
+  z-index: 3;
+}
+
+.pl__dot:nth-child(3),
+.pl__dot:nth-child(3):before,
+.pl__dot:nth-child(3):after {
+  animation-delay: -0.3333333333s;
+}
+
+.pl__dot:nth-child(4) {
+  transform: rotate(-90deg) translateX(5em) rotate(90deg);
+  z-index: 2;
+}
+
+.pl__dot:nth-child(4),
+.pl__dot:nth-child(4):before,
+.pl__dot:nth-child(4):after {
+  animation-delay: -0.5s;
+}
+
+.pl__dot:nth-child(5) {
+  transform: rotate(-120deg) translateX(5em) rotate(120deg);
+  z-index: 1;
+}
+
+.pl__dot:nth-child(5),
+.pl__dot:nth-child(5):before,
+.pl__dot:nth-child(5):after {
+  animation-delay: -0.6666666667s;
+}
+
+.pl__dot:nth-child(6) {
+  transform: rotate(-150deg) translateX(5em) rotate(150deg);
+  z-index: 1;
+}
+
+.pl__dot:nth-child(6),
+.pl__dot:nth-child(6):before,
+.pl__dot:nth-child(6):after {
+  animation-delay: -0.8333333333s;
+}
+
+.pl__dot:nth-child(7) {
+  transform: rotate(-180deg) translateX(5em) rotate(180deg);
+  z-index: 2;
+}
+
+.pl__dot:nth-child(7),
+.pl__dot:nth-child(7):before,
+.pl__dot:nth-child(7):after {
+  animation-delay: -1s;
+}
+
+.pl__dot:nth-child(8) {
+  transform: rotate(-210deg) translateX(5em) rotate(210deg);
+  z-index: 3;
+}
+
+.pl__dot:nth-child(8),
+.pl__dot:nth-child(8):before,
+.pl__dot:nth-child(8):after {
+  animation-delay: -1.1666666667s;
+}
+
+.pl__dot:nth-child(9) {
+  transform: rotate(-240deg) translateX(5em) rotate(240deg);
+  z-index: 4;
+}
+
+.pl__dot:nth-child(9),
+.pl__dot:nth-child(9):before,
+.pl__dot:nth-child(9):after {
+  animation-delay: -1.3333333333s;
+}
+
+.pl__dot:nth-child(10) {
+  transform: rotate(-270deg) translateX(5em) rotate(270deg);
+  z-index: 5;
+}
+
+.pl__dot:nth-child(10),
+.pl__dot:nth-child(10):before,
+.pl__dot:nth-child(10):after {
+  animation-delay: -1.5s;
+}
+
+.pl__dot:nth-child(11) {
+  transform: rotate(-300deg) translateX(5em) rotate(300deg);
+  z-index: 6;
+}
+
+.pl__dot:nth-child(11),
+.pl__dot:nth-child(11):before,
+.pl__dot:nth-child(11):after {
+  animation-delay: -1.6666666667s;
+}
+
+.pl__dot:nth-child(12) {
+  transform: rotate(-330deg) translateX(5em) rotate(330deg);
+  z-index: 6;
+}
+
+.pl__dot:nth-child(12),
+.pl__dot:nth-child(12):before,
+.pl__dot:nth-child(12):after {
+  animation-delay: -1.8333333333s;
+}
+
+.pl__text {
+  font-size: 0.75em;
+  max-width: 5rem;
+  position: relative;
+  text-shadow: 0 0 0.1em var(--fg-t);
+  transform: rotateZ(-45deg);
+}
+
+/* Animations */
+@keyframes shadow724 {
+  from {
+    animation-timing-function: ease-in;
+    box-shadow: 0.1em 0.1em 0 0.1em white, 0.3em 0 0.3em rgba(0, 0, 0, 0.3);
+  }
+
+  25% {
+    animation-timing-function: ease-out;
+    box-shadow: 0.1em 0.1em 0 0.1em white, 0.8em 0 0.8em rgba(0, 0, 0, 0.5);
+  }
+
+  50%,
+  to {
+    box-shadow: 0.1em 0.1em 0 0.1em white, 0.3em 0 0.3em rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes pushInOut1724 {
+  from {
+    animation-timing-function: ease-in;
+    background-color: var(--bg);
+    transform: translate(0, 0);
+  }
+
+  25% {
+    animation-timing-function: ease-out;
+    background-color: var(--primary2);
+    transform: translate(-71%, -71%);
+  }
+
+  50%,
+  to {
+    background-color: var(--bg);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pushInOut2724 {
+  from {
+    animation-timing-function: ease-in;
+    background-color: var(--bg);
+    clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+  }
+
+  25% {
+    animation-timing-function: ease-out;
+    background-color: var(--primary1);
+    clip-path: polygon(0 25%, 100% 25%, 100% 100%, 0 100%);
+  }
+
+  50%,
+  to {
+    background-color: var(--bg);
+    clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+  }
+}
+
+/* Loader Generating Code End */

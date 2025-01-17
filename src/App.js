@@ -61,7 +61,7 @@ function App() {
                 <Route path="project-drawing" element={<ProjectDrawing />} />
                 <Route path="off-the-shelf" element={<Offtheshelf />} />
                 <Route path="start-quote" element={<StartQuote />} />
-                <Route path="resulte-data" element={<ResulteData />} />
+                <Route path="result-data" element={<ResulteData />} />
                 <Route path="*" element={<Notfound />} />
               </Route>
             </>

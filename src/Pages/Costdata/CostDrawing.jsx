@@ -25,8 +25,6 @@ import Loader from "../../components/Loader";
 const CostDrawing = () => {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  // @ts-ignore
-  // const [loadingBeta, setLoadingBeta] = useState(false);
   const [cropper, setCropper] = useState();
   const [estimateData, setestimateData] = useState("");
   const [name, setName] = useState("");
@@ -74,7 +72,6 @@ const CostDrawing = () => {
 
   const onUpload = () => {
     if (!name.trim()) {
-      setLoading(false);
       Swal.fire({
         title: "Error",
         text: "Project Name cannot be empty!",
@@ -91,7 +88,6 @@ const CostDrawing = () => {
 
   const onChange = (e) => {
     if (!name.trim()) {
-      setLoading(false);
       Swal.fire({
         title: "Error",
         text: "Project Name cannot be empty!",
@@ -331,18 +327,15 @@ const CostDrawing = () => {
   };
   const handleSave = (event, apiType) => {
     event.preventDefault();
+    setLoading(true);
 
-    if (apiType === "alpha") {
-      setLoading(true);
-    }
-
-    if (inputValues.some((value) => value.trim() === "")) {
+    if (inputValues?.some((value) => value.trim() === "")) {
       setShowMessage(true);
       setLoading(false);
       return;
     }
 
-    if (!name.trim()) {
+    if (!name?.trim()) {
       setLoading(false);
       Swal.fire({
         title: "Error",
@@ -619,9 +612,10 @@ const CostDrawing = () => {
       }
     }
   }, [selectedId]);
-  console.log(user_prompt, "user_prompt");
+
   return (
     <>
+
       {loading && <Loader />}
       <div className="flex w-full flex-col min-h-screen items-center justify-center bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-hidden">
         <Particles
@@ -939,7 +933,7 @@ const CostDrawing = () => {
                             role="status"
                             aria-hidden="true"
                           ></span>{" "}
-                          Creating...
+                          Generating...
                         </>
                       ) : (
                         "Generate Cost Estimate"

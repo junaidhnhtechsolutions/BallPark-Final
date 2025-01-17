@@ -24,7 +24,7 @@ const ResultDrawing = () => {
   console.log(newItem, "estimateSectionsdata");
   return (
     <>
-      <div className="flex w-full flex-col min-h-screen items-center justify-center bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-hidden">
+      <div className="flex w-full flex-col h-full min-h-screen items-center justify-center bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-hidden">
         <Particles
           className="absolute inset-0 z-0"
           quantity={150}
@@ -33,7 +33,7 @@ const ResultDrawing = () => {
           refresh
         />
         <motion.div
-          className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative h-96 flex justify-center flex-col"
+          className="w-full max-w-5xl md:my-20 p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center flex-col"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -47,156 +47,132 @@ const ResultDrawing = () => {
               <span className="ml-2">Back</span>
             </Link>
           </div>
-          <h3 className="text-center text-4xl font-bold text-white">
-            Cost Estimate
-          </h3>
+          <div className="bg-white rounded-lg p-4 border w-full mt-10">
+            <h3 className="text-center text-4xl font-bold text-white mb-4">
+              Cost Estimate
+            </h3>
 
-          <div className="p-3 border shadow-md rounded h-100">
-            <img
-              src={BaseUrl?.CostImage + model?.image}
-              alt="not found"
-              className="img-fluid rounded mb-2"
-              style={{
-                objectFit: "contain",
-                width: "100%",
-                height: "250px",
-              }}
-            />
-            <p className="text-center text-lg font-medium text-white">{model?.project_name}</p>
-          </div>
-          {estimateSections?.primary_estimate?.data?.map((item, index) => {
-            const newItem = item?.dimension?.length ? item?.dimension[0] : null;
-            console.log(newItem, "newItem--->");
-            return (
-              <div
-                key={index}
-                className="p-4 bg-white border rounded mb-4 mt-4"
-              >
-                {item?.name && (
-                  <>
-                    <h2 className="fw-semibold mb-4">
-                      <strong>Material:</strong> {item?.name}
-                    </h2>
-                    <table className="table table-bordered">
-                      <thead>
-                        <tr>
-                          {newItem?.Part && <th>Part</th>}
-                          {newItem?.Length && <th>Length</th>}
-                          {newItem?.Height && <th>Height</th>}
-                          {newItem?.Width && <th>Width</th>}
-                          {newItem?.Area && <th>Area</th>}
-                          {newItem?.Count && <th>Count</th>}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {item?.dimension?.map((part, partIndex) => (
-                          <tr key={partIndex}>
-                            {part?.Part && <td>{part?.Part || "-"}</td>}
-                            {part?.Length && <td>{part?.Length || "-"}</td>}
-                            {part?.Height && <td>{part?.Height || "-"}</td>}
-                            {part?.Width && <td>{part?.Width || ""}</td>}
-                            {part?.Area && <td>{part?.Area || "-"}</td>}
-                            {part?.Count && <td>{part?.Count || "-"}</td>}
+            <div className="p-3 border shadzow-md rounded bg-white">
+              <img
+                src={BaseUrl?.CostImage + model?.image}
+                alt="not found"
+                className="img-fluid rounded mb-2"
+                style={{
+                  objectFit: "contain",
+                  width: "100%",
+                  height: "250px",
+                }}
+              />
+              <p className="text-start text-lg font-medium text-black">
+                Name: {model?.project_name}</p>
+            </div>
+            {estimateSections?.primary_estimate?.data?.map((item, index) => {
+              const newItem = item?.dimension?.length ? item?.dimension[0] : null;
+              console.log(newItem, "newItem--->");
+              return (
+                <div key={index} className="p-4 bg-white border rounded mb-4 mt-4 shadow-lg">
+                  {item?.name && (
+                    <>
+                      <h2 className="font-semibold mb-4 text-lg">
+                        <strong>Material:</strong> {item?.name}
+                      </h2>
+                      <table className="table-auto w-full border-collapse border border-gray-300 mb-4">
+                        <thead>
+                          <tr className="bg-gray-100">
+                            {newItem?.Part && <th className="px-4 py-2 border text-left">Part</th>}
+                            {newItem?.Length && <th className="px-4 py-2 border text-left">Length</th>}
+                            {newItem?.Height && <th className="px-4 py-2 border text-left">Height</th>}
+                            {newItem?.Width && <th className="px-4 py-2 border text-left">Width</th>}
+                            {newItem?.Area && <th className="px-4 py-2 border text-left">Area</th>}
+                            {newItem?.Count && <th className="px-4 py-2 border text-left">Count</th>}
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                    {/* <h3 className="mt-4">Cost Details</h3> */}
-                    <table className="table table-bordered">
-                      <thead>
-                        <tr>
-                          {item?.cost?.Area && <th>Area</th>}
-                          {item?.cost?.Cost && <th>Cost</th>}
-                          {item?.cost?.Total_Cost && <th>Total Cost</th>}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          {item?.cost?.Area && (
-                            <td>{item?.cost?.Area || "-"}</td>
-                          )}
-                          {item?.cost?.Cost && (
-                            <td>{item?.cost?.Cost || "-"}</td>
-                          )}
-                          {item?.cost?.Total_Cost && (
-                            <td>{item?.cost?.Total_Cost || "-"}</td>
-                          )}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </>
-                )}
-                {item?.Total_Cost?.Total_Cost !== undefined && (
-                  <div className="col-md-12">
-                    <p className="text-lg ">
-                      <strong>Total Cost:</strong>{" "}
-                      {item?.Total_Cost?.Total_Cost}
-                    </p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-          {estimateSections?.secondary_estimate?.Calculations && (
-            <>
-              <div className="p-4 bg-white border rounded mb-4">
-                {estimateSections?.secondary_estimate?.Calculations && (
-                  <>
-                    <h2 className="fw-bold text-dark">Sub Structure:</h2>
-                    <p>
-                      <strong>Plan:</strong>{" "}
-                      {estimateSections?.secondary_estimate.Plan}
-                    </p>
-                  </>
-                )}
-                <div>
-                  <div>
-                    {
-                      estimateSections?.secondary_estimate?.Calculations &&
-                      Object.keys(
-                        estimateSections?.secondary_estimate?.Calculations
-                      ).length > 0
-                        ? Object.keys(
-                            estimateSections?.secondary_estimate?.Calculations
-                          ).map((key, index) => {
-                            const value =
-                              estimateSections?.secondary_estimate
-                                ?.Calculations[key];
+                        </thead>
+                        <tbody>
+                          {item?.dimension?.map((part, partIndex) => (
+                            <tr key={partIndex} className="hover:bg-gray-50">
+                              {part?.Part && <td className="px-4 py-2 border">{part?.Part || "-"}</td>}
+                              {part?.Length && <td className="px-4 py-2 border">{part?.Length || "-"}</td>}
+                              {part?.Height && <td className="px-4 py-2 border">{part?.Height || "-"}</td>}
+                              {part?.Width && <td className="px-4 py-2 border">{part?.Width || ""}</td>}
+                              {part?.Area && <td className="px-4 py-2 border">{part?.Area || "-"}</td>}
+                              {part?.Count && <td className="px-4 py-2 border">{part?.Count || "-"}</td>}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
 
-                            return (
-                              <div key={index}>
-                                <strong>{key}:</strong>
-                                <div>
-                                  {/* Check if the value is an object and render nested keys if true */}
-                                  {typeof value === "object" ? (
-                                    Object.keys(value)?.map(
-                                      (subKey, subIndex) => (
-                                        <p key={subIndex}>
-                                          <strong>{subKey}:</strong>{" "}
-                                          {value[subKey]}
-                                        </p>
-                                      )
-                                    )
-                                  ) : (
-                                    <span>{value}</span> // Render non-object values directly
-                                  )}
-                                </div>
-                              </div>
-                            );
-                          })
-                        : null // Optional: Display message if Calculations is empty or undefined
-                    }
+                      {/* Cost Details */}
+                      <table className="table-auto w-full border-collapse border border-gray-300 mb-4">
+                        <thead>
+                          <tr className="bg-gray-100">
+                            {item?.cost?.Area && <th className="px-4 py-2 border text-left">Area</th>}
+                            {item?.cost?.Cost && <th className="px-4 py-2 border text-left">Cost</th>}
+                            {item?.cost?.Total_Cost && <th className="px-4 py-2 border text-left">Total Cost</th>}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="hover:bg-gray-50">
+                            {item?.cost?.Area && <td className="px-4 py-2 border">{item?.cost?.Area || "-"}</td>}
+                            {item?.cost?.Cost && <td className="px-4 py-2 border">{item?.cost?.Cost || "-"}</td>}
+                            {item?.cost?.Total_Cost && <td className="px-4 py-2 border">{item?.cost?.Total_Cost || "-"}</td>}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </>
+                  )}
+                  {item?.Total_Cost?.Total_Cost !== undefined && (
+                    <div className="col-md-12">
+                      <p className="text-lg">
+                        <strong>Total Cost:</strong> {item?.Total_Cost?.Total_Cost}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            {estimateSections?.secondary_estimate?.Calculations && (
+              <>
+                <div className="p-4 bg-white border rounded mb-4 shadow-lg">
+                  {estimateSections?.secondary_estimate?.Calculations && (
+                    <>
+                      <h2 className="font-bold text-dark mb-4">Sub Structure:</h2>
+                      <p>
+                        <strong>Plan:</strong> {estimateSections?.secondary_estimate.Plan}
+                      </p>
+                    </>
+                  )}
+                  <div>
+                    {estimateSections?.secondary_estimate?.Calculations &&
+                      Object.keys(estimateSections?.secondary_estimate?.Calculations).length > 0
+                      ? Object.keys(estimateSections?.secondary_estimate?.Calculations).map((key, index) => {
+                        const value = estimateSections?.secondary_estimate?.Calculations[key];
+                        return (
+                          <div key={index}>
+                            <strong>{key}:</strong>
+                            <div>
+                              {typeof value === "object" ? (
+                                Object.keys(value)?.map((subKey, subIndex) => (
+                                  <p key={subIndex}>
+                                    <strong>{subKey}:</strong> {value[subKey]}
+                                  </p>
+                                ))
+                              ) : (
+                                <span>{value}</span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })
+                      : null}
                   </div>
                 </div>
-              </div>
-              <h2 className="p-4 fw-bold bg-white ">
-                <strong className="fw-semibold text-dark">
-                  Total Combined Cost:
-                </strong>{" "}
-                {estimateSections?.total_combined_cost}
-              </h2>
-            </>
-          )}
+                <h2 className="p-4 font-bold bg-white text-lg">
+                  <strong className="font-semibold text-dark">Total Combined Cost:</strong> {estimateSections?.total_combined_cost}
+                </h2>
+              </>
+            )}
+          </div>
         </motion.div>
       </div>
     </>

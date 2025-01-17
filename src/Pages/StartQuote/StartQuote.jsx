@@ -485,6 +485,7 @@ const StartQuote = () => {
             setSelectedProject(null);
             setInputValues({});
             setInputFields([]);
+            setEditMode(false);
           }}
           className="flex flex-row w-10/12 justify-between space-x-4 border rounded-2xl mt-5 bg-white"
         >
@@ -572,8 +573,7 @@ const StartQuote = () => {
                       </button>
                       <div className="flex justify-end items-end">
                         <button
-                          className={`w-20 bg-red-600 my-4 flex justify-center items-center text-white rounded-xl py-3   ${editMode ? "btn-danger" : "btn-primary"
-                            }`}
+                          className={`w-20 bg-red-600 my-4 flex justify-center items-center text-white rounded-xl py-3`}
                           onClick={() => setEditMode((prev) => !prev)}
                         >
                           {editMode ? (
@@ -634,13 +634,6 @@ const StartQuote = () => {
                                 &nbsp;{formData?.shipToAddress}
                               </p>
                             </div>
-                            {/* <th
-                              style={{
-                                borderBottom: "1px solid black",
-                                width: "98.8%",
-                              }}
-                              className="ms-2"
-                            /> */}
                           </div>
                         )}
 
@@ -926,7 +919,6 @@ const StartQuote = () => {
                             />
                           </>
                         )}
-                        {console.log(SelectSubStructure, "SelectSubStructure")}
                         {!SelectSubStructure && (
                           <button
                             type="button"
@@ -1303,13 +1295,19 @@ const StartQuote = () => {
                         </button>
                       </div>
                     )}
-                    <div className="text-center">
+                    <div className="flex items-center text-center my-2 gap-4">
                       <button
                         className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center`}
                         type="button"
                         onClick={handleShow}
                       >
-                        <FaFilePdf className="me-2" /> Save PDF
+                        Save PDF
+                      </button>
+                      <button
+                        className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center`}
+                        type="button"
+                      >
+                        Email Suppliers
                       </button>
                     </div>
                   </>

@@ -38,7 +38,7 @@ const PostProject = () => {
 
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
   const handleClick = (result) => {
-    navigate("/resulte-data", {
+    navigate("/result-data", {
       state: { result, from: window.location.pathname },
     });
   };

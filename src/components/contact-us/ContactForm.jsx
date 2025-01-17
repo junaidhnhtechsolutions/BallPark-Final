@@ -128,7 +128,7 @@ export default function ContactForm() {
 
           <motion.button
             type="submit"
-            className="w-full py-3 font-medium text-lg bg-white text-black rounded-md flex justify-center items-center hover:bg-black hover:text-white transition-all "
+            className="flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center "
             initial={{ scale: 1 }}
             animate={{ scale: 1.02 }}
             whileHover={{ scale: 1.1, backgroundColor: "black" }}
