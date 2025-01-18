@@ -12,7 +12,7 @@ export default function Section3() {
             Our Services
           </h1>
           <div className="z-[20] relative md:mt-10 flex items-center md:flex-row flex-col-reverse">
-            <div className="md:w-[70%]">
+            <div className="md:w-[70%] md:mb-0 mb-5">
               <TextGenerateEffect
                 className="text-justify "
                 words={

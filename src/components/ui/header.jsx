@@ -1,52 +1,36 @@
-import gsap from "gsap";
-import TransitionLink from "../TransitionLink";
 import ToggleSwitch from "./hamburger";
-import { useEffect, useRef, useState } from "react";
+import { useState, useRef } from "react";
 import { cn } from "../../lib/utils";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const token = localStorage.getItem("token");
   const menuRef = useRef(null);
+  const toggleRef = useRef(null);
+  const { pathname } = useLocation();
+  console.log(pathname, 'pathname')
 
-  useEffect(() => {
-    if (open) {
-      const tl = gsap.timeline();
-      tl.from("h4", {
-        y: -10,
-        opacity: 0,
-        duration: 6,
-        stagger: 0.4,
-        ease: "power2.out",
-      });
-    } else {
-      gsap.to("h4", {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        ease: "power2.out",
-      });
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target) && !toggleRef.current.contains(event.target)) {
+      setOpen(false);
     }
-  }, [open]);
+  };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const handleToggleMenu = () => {
+    setOpen((prevState) => !prevState);
+  };
 
   const handleShowLogout = () => {
     localStorage.clear();
     window.location.href = "/login";
   };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  if (typeof window !== "undefined") {
+    window.onunload = () => document.removeEventListener("mousedown", handleClickOutside);
+  }
+
 
   return (
     <div className="fixed z-40 w-full">
@@ -62,10 +46,10 @@ export default function Header() {
           </Link>
           <div className="flex gap-4">
             <div className="flex gap-2 items-center justify-center relative">
-              <h1 className="cursor-pointer   relative z-40">
-                <ToggleSwitch setOpen={setOpen} open={open} />
+              <h1 className="cursor-pointer relative z-40" ref={toggleRef}>
+                <ToggleSwitch setOpen={handleToggleMenu} open={open} />
               </h1>
-              {token ? (
+              {pathname?.includes('/login') ? '' : token ? (
                 <p
                   onClick={handleShowLogout}
                   className="cursor-pointer bg-white text-black rounded-md w-24 h-10 flex justify-center items-center hover:bg-black hover:text-white transition-all"
@@ -85,18 +69,17 @@ export default function Header() {
             <div
               ref={menuRef}
               className={cn(
-                "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] md:top-1 top-10 md:right-10 right-20 z-[99999]",
+                "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] md:top-10 top-10 md:right-32 right-20 z-[99999]",
                 open ? "w-[70%] md:w-[50%] lg:w-[30%]" : "w-0 h-0 "
               )}
             >
               <div
                 className={cn(
                   "hidden transition-all transform ease-in-out duration-700 p-4",
-                  open && "flex flex-col   items-start "
+                  open && "flex flex-col items-start "
                 )}
               >
                 <h4 className="text-6xl mb-5 font-Roboto font-extralight flex flex-col justify-start items-start">
-                  {" "}
                   <h6 className="text-[#1B2978] font-light">Ball</h6>
                   <h6
                     className={cn(

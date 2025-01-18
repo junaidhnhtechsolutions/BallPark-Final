@@ -83,7 +83,6 @@ const CostDrawing = () => {
       inputRef.current.click();
     }
     setLines([]);
-    // setIsCropImage(true);
   };
 
   const onChange = (e) => {
@@ -626,7 +625,7 @@ const CostDrawing = () => {
           refresh
         />
         <motion.div
-          className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex items-center flex-col md:my-20"
+          className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex items-center flex-col my-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -693,7 +692,7 @@ const CostDrawing = () => {
                     >
                       <label className="cursor-pointer">
                         <input
-                          type="file"
+                          type={name ? "file" : "text"}
                           accept="image/*"
                           style={{ display: "none" }}
                           onChange={(e) => onChange(e)}

@@ -70,7 +70,7 @@ export default function Herobanner() {
         {showIntro && (
           <div
             id="intro-slider"
-            className="fixed h-screen p-10 bg-gradient-to-r from-[#ff007a] to-[#00083C] top-0 left-0 z-50 font-spaceGrotesk w-full flex flex-col items-center gap-10 tracking-tight"
+            className="fixed h-screen p-10 bg-gradient-to-r from-[#ff007a] to-[#00083C] top-0 left-0 z-50 font-spaceGrotesk w-full flex flex-col justify-center items-center gap-10 tracking-tight"
           >
             <div className="absolute top-0 1500px:h-[700px] 1500px:w-[700px] 1100px:h-[600px] 1100px:w-[600px] h-screen w-full hero_animation 1100px:left-8 1500px:left-14"></div>
             <svg
@@ -126,7 +126,8 @@ export default function Herobanner() {
             </svg>
             <p
               onClick={handleEnterClick}
-              className="text-white z-50 cursor-pointer uppercase tracking-widest absolute font-Roboto text-sm top-[53%] animate-bounce"
+              className="text-white z-50 cursor-pointer uppercase tracking-widest absolute font-Roboto 
+              md:text-sm text-[10px] md:top-[53%] top-[51%] animate-bounce"
             >
               Click to enter
             </p>
@@ -135,10 +136,12 @@ export default function Herobanner() {
 
         <div className="relative h-screen w-full text-white">
           <img
+            srcSet="/assets/banner3.jpg 1024w, /assets/mobile.jpg 600w"
+            sizes="(max-width: 600px) 100vw, 1024px"
             src="/assets/banner3.jpg"
-            // src="/assets/banner_new.jpg"
             className="absolute top-0 left-0 w-full h-screen object-cover -z-10"
           />
+
           <div className="relative h-screen flex justify-center items-center">
             <div className="relative max-w-screen-2xl md:w-[30%] 2xl:w-[20%] mx-auto flex flex-col items-center justify-center h-screen z-30 pointer-events-auto">
               {/* <CoolMode>
