@@ -1159,7 +1159,7 @@ const StartQuote = () => {
                       hideMarkup2={hideMarkup2}
                       loading2={loading2}
                     />
-                    {inputFields.length !== 0 && hideMarkup && (
+                    {inputFields?.length !== 0 && hideMarkup && (
                       <label
                         htmlFor="Free Style"
                         className="text-white font-medium text-xl mt-4"
@@ -1167,7 +1167,7 @@ const StartQuote = () => {
                         Free Style
                       </label>
                     )}
-                    {inputFields.length === 0 ? (
+                    {inputFields?.length === 0 ? (
                       <div className="text-center my-3">
                         <button
                           type="button"
