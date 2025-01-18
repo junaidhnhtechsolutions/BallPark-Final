@@ -3,7 +3,7 @@ import BallPark from "../components/ball-park/ball-park";
 
 const Ball = () => {
   return (
-    <div className="h-screen overflow-auto example ">
+    <div className="md:h-screen h-auto overflow-auto example ">
       <Template>
         <div className="">
           <BallPark />

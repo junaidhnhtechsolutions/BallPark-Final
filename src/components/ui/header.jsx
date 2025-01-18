@@ -50,9 +50,10 @@ export default function Header() {
 
   return (
     <div className="fixed z-40 w-full">
-      <div className="w-[80%]  mx-auto bg-transparent text-white h-10">
-        <div className="font-signika absolute items-center text-xs top-4 flex justify-between w-[80%] logo text-center bg-transparent tracking-widest uppercase leading-[50px] font-bold">
-          <div>{/*  */}</div>
+      <div className="md:w-[80%] w-full mx-auto bg-transparent text-white h-10">
+        <div className="font-signika absolute items-center text-xs top-4 flex justify-between md:w-[80%]
+        w-full logo text-center bg-transparent tracking-widest uppercase leading-[50px] font-bold md:px-0 px-2">
+          <div className="md:block hidden">{/*  */}</div>
           <Link
             to={"/"}
             className="cursor-pointer text-lg flex gap-2 items-center relative z-40"
@@ -67,14 +68,14 @@ export default function Header() {
               {token ? (
                 <p
                   onClick={handleShowLogout}
-                  className="cursor-pointer bg-white text-black rounded-md w-24 h-10 flex justify-center items-center hover:bg-black hover:text-white transition-all absolute left-12"
+                  className="cursor-pointer bg-white text-black rounded-md w-24 h-10 flex justify-center items-center hover:bg-black hover:text-white transition-all"
                 >
                   Logout
                 </p>
               ) : (
                 <Link
                   to={"/login"}
-                  className="bg-white text-black rounded-md w-24 h-10 flex justify-center items-center hover:bg-black hover:text-white transition-all absolute left-12"
+                  className="bg-white text-black rounded-md w-24 h-10 flex justify-center items-center hover:bg-black hover:text-white transition-all"
                 >
                   Join Us
                 </Link>
@@ -84,8 +85,8 @@ export default function Header() {
             <div
               ref={menuRef}
               className={cn(
-                "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] top-1 right-10  z-[99999]",
-                open ? "w-full md:w-[50%] lg:w-[30%]  " : "w-0 h-0 "
+                "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] md:top-1 top-10 md:right-10 right-20 z-[99999]",
+                open ? "w-[70%] md:w-[50%] lg:w-[30%]" : "w-0 h-0 "
               )}
             >
               <div

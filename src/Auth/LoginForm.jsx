@@ -143,233 +143,233 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-[100vh] bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-hidden">
-        <Particles
-          className="absolute inset-0 z-0"
-          quantity={150}
-          ease={100}
-          color={"#ffffff"}
-          refresh
-        />
+      <div className="flex justify-center items-center min-h-screen h-auto md:h-screen bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-hidden">
+      <Particles
+        className="absolute inset-0 z-0"
+        quantity={150}
+        ease={100}
+        color={"#ffffff"}
+        refresh
+      />
 
-        <motion.div
-          className="relative z-10 rounded-xl shadow-2xl p-5 max-w-lg w-full bg-opacity-80"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="login_register">
-            <motion.div
-              className="flex justify-between space-x-4 w-full border rounded-2xl bg-white"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+      <motion.div
+        className="relative z-10 rounded-xl shadow-2xl p-5 max-w-lg w-full bg-opacity-80"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="login_register">
+          <motion.div
+            className={`flex justify-between space-x-4 w-full border rounded-2xl bg-white md:mt-0 mt-20`}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              to="#"
+              className={`login text-lg font-medium w-full p-3 rounded-2xl text-center ${
+                activeTab === "login"
+                  ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
+                  : "text-gray-700"
+              }`}
+              onClick={() => {
+                handleTabChange("login");
+                resetForm();
+              }}
             >
-              <Link
-                to="#"
-                className={`login text-lg font-medium w-full p-3 rounded-2xl text-center ${
-                  activeTab === "login"
-                    ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
-                    : "text-gray-700"
-                }`}
-                onClick={() => {
-                  handleTabChange("login");
-                  resetForm();
-                }}
-              >
-                Login
-              </Link>
-              <Link
-                to="#"
-                className={`register text-lg font-medium w-full p-3 rounded-2xl text-center ${
-                  activeTab === "register"
-                    ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
-                    : "text-gray-700"
-                }`}
-                onClick={() => {
-                  handleTabChange("register");
-                  resetForm();
-                }}
-              >
-                Signup
-              </Link>
-            </motion.div>
-          </div>
-
-          <form className="form space-y-3 mt-4" onSubmit={handleSubmit}>
-            {activeTab === "register" && (
-              <>
-                <motion.input
-                  type="text"
-                  autoComplete="off"
-                  placeholder="First Name"
-                  className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                  name="name"
-                  value={values?.name}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                />
-                {errors?.name && (
-                  <div className="text-sm text-red-600">{errors?.name}</div>
-                )}
-
-                <motion.input
-                  type="text"
-                  autoComplete="off"
-                  placeholder="Company Name"
-                  className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                  name="company"
-                  value={values?.company}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                />
-                {errors?.company && (
-                  <div className="text-sm text-red-600">{errors?.company}</div>
-                )}
-
-                <motion.input
-                  type="number"
-                  autoComplete="off"
-                  placeholder="Age"
-                  className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                  name="age"
-                  value={values?.age}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                />
-                {errors?.age && (
-                  <div className="text-sm text-red-600">{errors?.age}</div>
-                )}
-
-                <motion.input
-                  type="email"
-                  autoComplete="off"
-                  placeholder="Email Address"
-                  className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                  name="email"
-                  value={values?.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                />
-                {errors?.email && (
-                  <div className="text-sm text-red-600">{errors?.email}</div>
-                )}
-
-                <div className="relative">
-                  <motion.input
-                    type={showPassword ? "text" : "password"}
-                    autoComplete="off"
-                    placeholder="Password"
-                    className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                    name="password"
-                    value={values?.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                  <span
-                    className="absolute top-5 right-4 cursor-pointer"
-                    onClick={togglePasswordVisibility}
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </span>
-                </div>
-                {errors?.password && (
-                  <div className="text-sm text-red-600">{errors?.password}</div>
-                )}
-              </>
-            )}
-
-            {activeTab === "login" && (
-              <>
-                <motion.input
-                  type="email"
-                  autoComplete="off"
-                  placeholder="Email Address"
-                  className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                  name="email"
-                  value={values?.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                />
-                {errors?.email && (
-                  <div className="text-sm text-red-600">{errors?.email}</div>
-                )}
-
-                <div className="relative">
-                  <motion.input
-                    type={showPassword ? "text" : "password"}
-                    autoComplete="off"
-                    placeholder="Password"
-                    className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                    name="password"
-                    value={values?.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                  <span
-                    className="absolute top-5 right-4 cursor-pointer"
-                    onClick={togglePasswordVisibility}
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </span>
-                </div>
-                {errors?.password && (
-                  <div className="text-sm text-red-600">{errors?.password}</div>
-                )}
-                <Link to="#" className="fp text-sm font-medium text-blue-500">
-                  Forgot password?
-                </Link>
-              </>
-            )}
-
-            <motion.button
-              type="button"
-              onClick={handleSubmit}
-              className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold hover:opacity-80"
-              disabled={loading}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
+              Login
+            </Link>
+            <Link
+              to="#"
+              className={`register text-lg font-medium w-full p-3 rounded-2xl text-center ${
+                activeTab === "register"
+                  ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
+                  : "text-gray-700"
+              }`}
+              onClick={() => {
+                handleTabChange("register");
+                resetForm();
+              }}
             >
-              {loading ? (
-                <>
-                  <span
-                    className="spinner-border spinner-border-sm me-2"
-                    role="status"
-                    aria-hidden="true"
-                  ></span>
-                  Processing...
-                </>
-              ) : activeTab === "register" ? (
-                "Signup"
-              ) : (
-                "Login"
+              Signup
+            </Link>
+          </motion.div>
+        </div>
+
+        <form className="form space-y-3 mt-4" onSubmit={handleSubmit}>
+          {activeTab === "register" && (
+            <>
+              <motion.input
+                type="text"
+                autoComplete="off"
+                placeholder="First Name"
+                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                name="name"
+                value={values?.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              />
+              {errors?.name && (
+                <div className="text-sm text-red-600">{errors?.name}</div>
               )}
-            </motion.button>
-          </form>
-        </motion.div>
-      </div>
+
+              <motion.input
+                type="text"
+                autoComplete="off"
+                placeholder="Company Name"
+                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                name="company"
+                value={values?.company}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              />
+              {errors?.company && (
+                <div className="text-sm text-red-600">{errors?.company}</div>
+              )}
+
+              <motion.input
+                type="number"
+                autoComplete="off"
+                placeholder="Age"
+                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                name="age"
+                value={values?.age}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              />
+              {errors?.age && (
+                <div className="text-sm text-red-600">{errors?.age}</div>
+              )}
+
+              <motion.input
+                type="email"
+                autoComplete="off"
+                placeholder="Email Address"
+                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                name="email"
+                value={values?.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              />
+              {errors?.email && (
+                <div className="text-sm text-red-600">{errors?.email}</div>
+              )}
+
+              <div className="relative">
+                <motion.input
+                  type={showPassword ? "text" : "password"}
+                  autoComplete="off"
+                  placeholder="Password"
+                  className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                  name="password"
+                  value={values?.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  initial={{ opacity: 0, y: -50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                />
+                <span
+                  className="absolute top-5 right-4 cursor-pointer"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
+              {errors?.password && (
+                <div className="text-sm text-red-600">{errors?.password}</div>
+              )}
+            </>
+          )}
+
+          {activeTab === "login" && (
+            <>
+              <motion.input
+                type="email"
+                autoComplete="off"
+                placeholder="Email Address"
+                className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                name="email"
+                value={values?.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              />
+              {errors?.email && (
+                <div className="text-sm text-red-600">{errors?.email}</div>
+              )}
+
+              <div className="relative">
+                <motion.input
+                  type={showPassword ? "text" : "password"}
+                  autoComplete="off"
+                  placeholder="Password"
+                  className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                  name="password"
+                  value={values?.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  initial={{ opacity: 0, y: -50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                />
+                <span
+                  className="absolute top-5 right-4 cursor-pointer"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
+              {errors?.password && (
+                <div className="text-sm text-red-600">{errors?.password}</div>
+              )}
+              <Link to="#" className="fp text-sm font-medium text-blue-500">
+                Forgot password?
+              </Link>
+            </>
+          )}
+
+          <motion.button
+            type="button"
+            onClick={handleSubmit}
+            className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold hover:opacity-80"
+            disabled={loading}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            {loading ? (
+              <>
+                <span
+                  className="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Processing...
+              </>
+            ) : activeTab === "register" ? (
+              "Signup"
+            ) : (
+              "Login"
+            )}
+          </motion.button>
+        </form>
+      </motion.div>
+    </div>
     </>
   );
 };

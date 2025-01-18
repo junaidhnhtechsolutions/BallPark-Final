@@ -366,7 +366,7 @@ const MaterialComponent = ({
           <>
             <div
               key={index}
-              className={`flex relative gap-4 mb-4 w-100`}
+              className={`flex relative md:flex-nowrap flex-wrap gap-4 mb-4 w-100`}
               id="material-none-pdf"
             >
               {/* First Select */}
@@ -491,111 +491,109 @@ const MaterialComponent = ({
                   key={items?.id}
                   className="bg-white p-4 rounded-lg shadow-md mb-4"
                 >
-                  <table className="min-w-full table-auto border-collapse">
-                    <thead>
-                      {index === 0 && (
-                        <tr className="bg-gray-100 border-b">
-                          <th className="p-3 text-left font-semibold text-gray-700">
-                            Product Image
-                          </th>
-                          <th className="p-3 text-left font-semibold text-gray-700">
-                            Material Name
-                          </th>
-                          <th className="p-3 text-left font-semibold text-gray-700">
-                            Size
-                          </th>
-                          <th className="p-3 text-left font-semibold text-gray-700">
-                            Cost
-                          </th>
-                          <th className="p-3 text-left font-semibold text-gray-700">
-                            Quantity
-                          </th>
-                          {hideMarkup2 && (
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse">
+                      <thead>
+                        {index === 0 && (
+                          <tr className="bg-gray-100 border-b">
                             <th className="p-3 text-left font-semibold text-gray-700">
-                              Markup
+                              Product Image
                             </th>
-                          )}
-                          <th className="p-3 text-left font-semibold text-gray-700">
-                            Total Cost
-                          </th>
-                          {HideMarkup && (
                             <th className="p-3 text-left font-semibold text-gray-700">
-                              Action
+                              Material Name
                             </th>
-                          )}
-                        </tr>
-                      )}
-                    </thead>
-                    <tbody>
-                      <tr className="border-b hover:bg-gray-50">
-                        <td className="p-3">
-                          {items?.image_url ? (
-                            <BlobImage
-                              imageUrl={items?.image_url}
-                              alt={items?.material_name}
-                              className="w-16 h-16 object-cover rounded"
-                            />
-                          ) : (
-                            "N/A"
-                          )}
-                        </td>
-                        <td className="p-3">{items?.material_name || ""}</td>
-                        <td className="p-3">{items?.size || "N/A"}</td>
-                        <td className="p-3">{items?.cost || ""}</td>
-                        <td className="p-3">
-                          <input
-                            type="number"
-                            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            style={{
-                              border: !HideMarkup
-                                ? "none"
-                                : "1px solid #ced4da",
-                            }}
-                            placeholder="Quantity"
-                            value={quantities[index] || 1}
-                            onChange={(e) => handleQuantityChange(e, index)}
-                          />
-                        </td>
-                        {hideMarkup2 && (
+                            <th className="p-3 text-left font-semibold text-gray-700">
+                              Size
+                            </th>
+                            <th className="p-3 text-left font-semibold text-gray-700">
+                              Cost
+                            </th>
+                            <th className="p-3 text-left font-semibold text-gray-700">
+                              Quantity
+                            </th>
+                            {hideMarkup2 && (
+                              <th className="p-3 text-left font-semibold text-gray-700">
+                                Markup
+                              </th>
+                            )}
+                            <th className="p-3 text-left font-semibold text-gray-700">
+                              Total Cost
+                            </th>
+                            {HideMarkup && (
+                              <th className="p-3 text-left font-semibold text-gray-700">
+                                Action
+                              </th>
+                            )}
+                          </tr>
+                        )}
+                      </thead>
+                      <tbody>
+                        <tr className="border-b hover:bg-gray-50">
+                          <td className="p-3">
+                            {items?.image_url ? (
+                              <BlobImage
+                                imageUrl={items?.image_url}
+                                alt={items?.material_name}
+                                className="w-16 h-16 object-cover rounded"
+                              />
+                            ) : (
+                              "N/A"
+                            )}
+                          </td>
+                          <td className="p-3">{items?.material_name || ""}</td>
+                          <td className="p-3">{items?.size || "N/A"}</td>
+                          <td className="p-3">{items?.cost || ""}</td>
                           <td className="p-3">
                             <input
                               type="number"
                               className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                               style={{
-                                border: !HideMarkup
-                                  ? "none"
-                                  : "1px solid #ced4da",
+                                border: !HideMarkup ? "none" : "1px solid #ced4da",
                               }}
-                              value={Markup[index] || 0}
-                              placeholder="Enter Markup"
-                              onChange={(e) => handleMarkupChange(e, index)}
+                              placeholder="Quantity"
+                              value={quantities[index] || 1}
+                              onChange={(e) => handleQuantityChange(e, index)}
                             />
                           </td>
-                        )}
-                        <td className="p-3">
-                          {calculateTotalCost(items?.cost, index).toFixed(2)}
-                        </td>
-                        {HideMarkup && (
+                          {hideMarkup2 && (
+                            <td className="p-3">
+                              <input
+                                type="number"
+                                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                style={{
+                                  border: !HideMarkup ? "none" : "1px solid #ced4da",
+                                }}
+                                value={Markup[index] || 0}
+                                placeholder="Enter Markup"
+                                onChange={(e) => handleMarkupChange(e, index)}
+                              />
+                            </td>
+                          )}
                           <td className="p-3">
-                            {items?.product_url ? (
-                              <a
-                                className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center text-nowrap px-3"
-                                href={items?.product_url}
-                                target="_blank"
-                              >
-                                <i className="fa-regular fa-image"></i> View
-                                Product
-                              </a>
-                            ) : (
-                              "N/A"
-                            )}
+                            {calculateTotalCost(items?.cost, index).toFixed(2)}
                           </td>
-                        )}
-                      </tr>
-                    </tbody>
-                  </table>
+                          {HideMarkup && (
+                            <td className="p-3">
+                              {items?.product_url ? (
+                                <a
+                                  className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center text-nowrap px-3"
+                                  href={items?.product_url}
+                                  target="_blank"
+                                >
+                                  <i className="fa-regular fa-image"></i> View Product
+                                </a>
+                              ) : (
+                                "N/A"
+                              )}
+                            </td>
+                          )}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               ))}
+
           </>
         );
       })}

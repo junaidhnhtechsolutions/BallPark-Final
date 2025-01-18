@@ -25,10 +25,16 @@ code {
 =======================*/
 .nav-item {
   width: 100% !important;
+  margin: 0px !important;
 }
 
 .tab-content {
   width: 84% !important;
+}
+@media (max-width: 768px) {
+  .tab-content {
+    width: 100% !important;
+  }
 }
 
 .page_404 {

@@ -657,7 +657,7 @@ const CostDrawing = () => {
           <div className="w-full">
             {isCrop && (
               <>
-                <h3 className="text-center text-4xl font-bold text-white">
+                <h3 className="text-center text-4xl font-bold text-white md:mt-5 mt-10">
                   Cost Drawing
                 </h3>
                 <div className="w-full p-6 rounded-lg shadow-2xl bg-opacity-80">

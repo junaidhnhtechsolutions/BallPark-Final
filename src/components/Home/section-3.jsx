@@ -4,14 +4,14 @@ import { TextGenerateEffect } from "../ui/text-generate-effect";
 
 export default function Section3() {
   return (
-    <div className="bg-[#00083C] relative h-screen  overflow-hidden">
-      <div className="absolute  1500px:h-[700px] 1500px:w-[700px] 1100px:h-[600px] 1100px:w-[600px] h-screen  w-full hero_animation 1100px:left-8 1500px:left-14"></div>
-      <div className=" relative  text-white   w-[80%] mx-auto max-w-screen-2xl ">
-        <div className="flex flex-col justify-center h-screen items-center">
-          <h1 className="text-4xl text-center flex justify-center mb-12  text-white items-center uppercase w-[50%] mx-auto">
+    <div className="bg-[#00083C] relative md:h-screen h-auto  overflow-hidden">
+      <div className="absolute  1500px:h-[700px] 1500px:w-[700px] 1100px:h-[600px] 1100px:w-[600px] md:h-screen h-auto  w-full hero_animation 1100px:left-8 1500px:left-14"></div>
+      <div className=" relative  text-white  w-[80%] mx-auto max-w-screen-2xl ">
+        <div className="flex flex-col justify-center md:h-screen h-auto items-center">
+          <h1 className="text-4xl text-center flex justify-center  text-white items-center uppercase w-[50%] mx-auto">
             Our Services
           </h1>
-          <div className=" z-[20] relative  flex items-center md:flex-row flex-col-reverse   ">
+          <div className="z-[20] relative md:mt-10 flex items-center md:flex-row flex-col-reverse">
             <div className="md:w-[70%]">
               <TextGenerateEffect
                 className="text-justify "

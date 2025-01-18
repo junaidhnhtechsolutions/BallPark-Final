@@ -458,7 +458,7 @@ const StartQuote = () => {
         refresh
       />
       <motion.div
-        className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center items-center flex-col md:my-20"
+        className="w-full max-w-5xl md:p-6 p-4 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center items-center flex-col my-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -472,7 +472,7 @@ const StartQuote = () => {
             <span className="ml-2">Back</span>
           </Link>
         </div>
-        <h3 className="text-center text-4xl font-bold text-white">
+        <h3 className="text-center md:text-4xl text-3xl font-bold text-white md:mt-5 mt-10">
           Choose a Project
         </h3>
 
@@ -487,7 +487,7 @@ const StartQuote = () => {
             setInputFields([]);
             setEditMode(false);
           }}
-          className="flex flex-row w-10/12 justify-between space-x-4 border rounded-2xl mt-5 bg-white"
+          className="flex flex-col md:flex-row md:w-10/12 w-full justify-between space-x-4 border rounded-2xl mt-5 bg-white"
         >
           <Tab
             eventKey="Past Project"
@@ -637,86 +637,69 @@ const StartQuote = () => {
                           </div>
                         )}
 
-                      {editedData?.primary_estimate?.data?.map(
-                        (item, itemIndex) =>
-                          item?.name && (
-                            <div
-                              key={itemIndex}
-                              class="p-4 bg-white border rounded-lg mb-4"
-                            >
-                              <h5 class="text-gray-700 font-bold mb-3">
-                                <strong>Material:</strong> {item?.name}
-                              </h5>
-                              <table class="table-auto border-collapse border border-gray-300 w-full mb-4">
+                      {editedData?.primary_estimate?.data?.map((item, itemIndex) =>
+                        item?.name && (
+                          <div
+                            key={itemIndex}
+                            className="p-4 bg-white border rounded-lg mb-4 w-full sm:w-auto"
+                          >
+                            <h5 className="text-gray-700 font-bold mb-3 text-base sm:text-lg">
+                              <strong>Material:</strong> {item?.name}
+                            </h5>
+
+                            {/* Table for Dimensions */}
+                            <div className="overflow-x-auto">
+                              <table className="table-auto border-collapse border border-gray-300 w-full mb-4">
                                 <thead>
-                                  <tr class="bg-gray-100">
-                                    <th class="border border-gray-300 px-4 py-2 text-left">
-                                      Part
-                                    </th>
-                                    {item?.dimension?.some(
-                                      (part) => part?.Height
-                                    ) && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Height
-                                        </th>
-                                      )}
-                                    {item?.dimension?.some(
-                                      (part) => part?.Width
-                                    ) && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Width
-                                        </th>
-                                      )}
-                                    {item?.dimension?.some(
-                                      (part) => part?.Length
-                                    ) && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Length
-                                        </th>
-                                      )}
-                                    {item?.dimension?.some(
-                                      (part) => part?.Area
-                                    ) && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Area
-                                        </th>
-                                      )}
-                                    {item?.dimension?.some(
-                                      (part) => part?.Count
-                                    ) && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Count
-                                        </th>
-                                      )}
-                                    {item?.dimension?.some(
-                                      (part) => part?.Volume
-                                    ) && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Volume
-                                        </th>
-                                      )}
+                                  <tr className="bg-gray-100">
+                                    <th className="border border-gray-300 px-4 py-2 text-left">Part</th>
+                                    {item?.dimension?.some((part) => part?.Height) && (
+                                      <th className="border border-gray-300 px-4 py-2 text-left">
+                                        Height
+                                      </th>
+                                    )}
+                                    {item?.dimension?.some((part) => part?.Width) && (
+                                      <th className="border border-gray-300 px-4 py-2 text-left">
+                                        Width
+                                      </th>
+                                    )}
+                                    {item?.dimension?.some((part) => part?.Length) && (
+                                      <th className="border border-gray-300 px-4 py-2 text-left">
+                                        Length
+                                      </th>
+                                    )}
+                                    {item?.dimension?.some((part) => part?.Area) && (
+                                      <th className="border border-gray-300 px-4 py-2 text-left">
+                                        Area
+                                      </th>
+                                    )}
+                                    {item?.dimension?.some((part) => part?.Count) && (
+                                      <th className="border border-gray-300 px-4 py-2 text-left">
+                                        Count
+                                      </th>
+                                    )}
+                                    {item?.dimension?.some((part) => part?.Volume) && (
+                                      <th className="border border-gray-300 px-4 py-2 text-left">
+                                        Volume
+                                      </th>
+                                    )}
                                   </tr>
                                 </thead>
                                 <tbody>
                                   {item?.dimension?.map((part, partIndex) => (
                                     <tr key={partIndex}>
-                                      <td class="border border-gray-300 px-4 py-2">
+                                      <td className="border border-gray-300 px-4 py-2">
                                         {part?.Part || "-"}
                                       </td>
                                       {part?.Height && (
-                                        <td class="border border-gray-300 px-4 py-2">
+                                        <td className="border border-gray-300 px-4 py-2">
                                           {editMode ? (
                                             <input
                                               type="number"
-                                              class="form-control border border-gray-300 px-2 py-1 w-full  outline-none"
+                                              className="form-control border border-gray-300 px-2 py-1 w-full sm:w-auto outline-none"
                                               value={part?.Height || ""}
                                               onChange={(e) =>
-                                                handleEdit(
-                                                  itemIndex,
-                                                  partIndex,
-                                                  "Height",
-                                                  e.target.value
-                                                )
+                                                handleEdit(itemIndex, partIndex, "Height", e.target.value)
                                               }
                                             />
                                           ) : (
@@ -725,19 +708,14 @@ const StartQuote = () => {
                                         </td>
                                       )}
                                       {part?.Width && (
-                                        <td class="border border-gray-300 px-4 py-2">
+                                        <td className="border border-gray-300 px-4 py-2">
                                           {editMode ? (
                                             <input
                                               type="number"
-                                              class="form-control border border-gray-300 px-2 py-1 w-full  outline-none"
+                                              className="form-control border border-gray-300 px-2 py-1 w-full sm:w-auto outline-none"
                                               value={part?.Width || ""}
                                               onChange={(e) =>
-                                                handleEdit(
-                                                  itemIndex,
-                                                  partIndex,
-                                                  "Width",
-                                                  e.target.value
-                                                )
+                                                handleEdit(itemIndex, partIndex, "Width", e.target.value)
                                               }
                                             />
                                           ) : (
@@ -746,162 +724,128 @@ const StartQuote = () => {
                                         </td>
                                       )}
                                       {part?.Length && (
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {part?.Length}
-                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">{part?.Length}</td>
                                       )}
                                       {part?.Area && (
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {part?.Area}
-                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">{part?.Area}</td>
                                       )}
                                       {part?.Count && (
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {part?.Count}
-                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">{part?.Count}</td>
                                       )}
                                       {part?.Volume && (
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {part?.Volume}
-                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">{part?.Volume}</td>
                                       )}
                                     </tr>
                                   ))}
                                 </tbody>
                               </table>
-                              {item?.cost && (
-                                <table class="table-auto border-collapse border border-gray-300 w-full">
+                            </div>
+
+                            {/* Table for Cost */}
+                            {item?.cost && (
+                              <div className="overflow-x-auto">
+                                <table className="table-auto border-collapse border border-gray-300 w-full">
                                   <thead>
-                                    <tr class="bg-gray-100">
+                                    <tr className="bg-gray-100">
                                       {item?.cost?.Area && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Area
-                                        </th>
+                                        <th className="border border-gray-300 px-4 py-2 text-left">Area</th>
                                       )}
                                       {item?.cost?.Length && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Length
-                                        </th>
+                                        <th className="border border-gray-300 px-4 py-2 text-left">Length</th>
                                       )}
                                       {item?.cost?.Cost && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Cost
-                                        </th>
+                                        <th className="border border-gray-300 px-4 py-2 text-left">Cost</th>
                                       )}
                                       {item?.cost?.Total_Cost && (
-                                        <th class="border border-gray-300 px-4 py-2 text-left">
-                                          Total Cost
-                                        </th>
+                                        <th className="border border-gray-300 px-4 py-2 text-left">Total Cost</th>
                                       )}
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
                                       {item?.cost?.Area && (
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {item?.cost?.Area}
-                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">{item?.cost?.Area}</td>
                                       )}
                                       {item?.cost?.Length && (
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {item?.cost?.Length}
-                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">{item?.cost?.Length}</td>
                                       )}
                                       {item?.cost?.Cost && (
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {item?.cost?.Cost}
-                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">{item?.cost?.Cost}</td>
                                       )}
                                       {item?.cost?.Total_Cost && (
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {item?.cost?.Total_Cost}
-                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">{item?.cost?.Total_Cost}</td>
                                       )}
                                     </tr>
                                   </tbody>
                                 </table>
-                              )}
-                            </div>
-                          )
+                              </div>
+                            )}
+                          </div>
+                        )
                       )}
+
                       {editedData?.secondary_estimate?.Calculations && (
-                        <div class="p-4 bg-white border rounded-lg mb-4">
+                        <div className="p-4 bg-white border rounded-lg mb-4">
                           {editedData?.secondary_estimate?.Calculations && (
                             <div>
-                              <h2 class="font-bold text-gray-800 mb-3">
+                              <h2 className="font-bold text-gray-800 mb-3 text-base sm:text-lg">
                                 Sub Structure:{" "}
-                                {
-                                  Object.keys(
-                                    editedData?.secondary_estimate?.Calculations
-                                  )[0]
-                                }
+                                {Object.keys(editedData?.secondary_estimate?.Calculations)[0]}
                               </h2>
-                              <p class="mb-4">
+                              <p className="mb-4 text-sm sm:text-base">
                                 <strong>Plan:</strong>{" "}
                                 {editedData?.secondary_estimate.Plan}
                               </p>
                             </div>
                           )}
-                          <table class="table-auto border-collapse border border-gray-300 w-full">
-                            <thead>
-                              <tr class="bg-gray-100">
-                                {/* <th class="border border-gray-300 px-4 py-2 text-left">
-                                  Key
-                                </th> */}
-                                {/* <th class="border border-gray-300 px-4 py-2 text-left">
-                                  Sub-Key
-                                </th>
-                                <th class="border border-gray-300 px-4 py-2 text-left">
-                                  Value
-                                </th> */}
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {Object.keys(
-                                editedData?.secondary_estimate?.Calculations
-                              ).map((key, index) => {
-                                const value =
-                                  editedData?.secondary_estimate?.Calculations[
-                                  key
-                                  ];
-                                return (
-                                  <>
-                                    {typeof value === "object" ? (
-                                      Object.keys(value).map(
-                                        (subKey, subIndex) => (
-                                          <tr key={`${index}-${subIndex}`}>
-                                            {/* <td class="border border-gray-300 px-4 py-2">
+                          <div className="overflow-x-auto">
+                            <table className="table-auto border-collapse border border-gray-300 w-full">
+                              <thead>
+                                <tr className="bg-gray-100">
+                                  {/* You can add column headers here */}
+                                  <th className="border border-gray-300 px-4 py-2 text-left">Sub-Key</th>
+                                  <th className="border border-gray-300 px-4 py-2 text-left">Value</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {Object.keys(editedData?.secondary_estimate?.Calculations).map(
+                                  (key, index) => {
+                                    const value =
+                                      editedData?.secondary_estimate?.Calculations[key];
+                                    return (
+                                      <>
+                                        {typeof value === "object" ? (
+                                          Object.keys(value).map((subKey, subIndex) => (
+                                            <tr key={`${index}-${subIndex}`}>
+                                              <td className="border border-gray-300 px-4 py-2">
+                                                {subKey}
+                                              </td>
+                                              <td className="border border-gray-300 px-4 py-2">
+                                                {value[subKey]}
+                                              </td>
+                                            </tr>
+                                          ))
+                                        ) : (
+                                          <tr key={index}>
+                                            <td className="border border-gray-300 px-4 py-2">
                                               {key}
-                                            </td> */}
-                                            <td class="border border-gray-300 px-4 py-2">
-                                              {subKey}
                                             </td>
-                                            <td class="border border-gray-300 px-4 py-2">
-                                              {value[subKey]}
+                                            <td className="border border-gray-300 px-4 py-2">
+                                              {value}
                                             </td>
                                           </tr>
-                                        )
-                                      )
-                                    ) : (
-                                      <tr key={index}>
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {key}
-                                        </td>
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          -
-                                        </td>
-                                        <td class="border border-gray-300 px-4 py-2">
-                                          {value}
-                                        </td>
-                                      </tr>
-                                    )}
-                                  </>
-                                );
-                              })}
-                            </tbody>
-                          </table>
+                                        )}
+                                      </>
+                                    );
+                                  }
+                                )}
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       )}
+
+
                       <div id="Free-Style-Container">
                         {SelectSubStructure && (
                           <>
@@ -958,7 +902,7 @@ const StartQuote = () => {
                                     <div>
                                       <input
                                         type="text"
-                                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                                        className="md:my-2 my-2 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                                         name="freestyle"
                                         placeholder="Labour, Transportation, etc"
                                         value={input?.freestyle}
@@ -971,7 +915,7 @@ const StartQuote = () => {
                                     <div className="relative">
                                       <input
                                         type="number"
-                                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                                        className="md:my-2 my-2 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                                         name="freestylecost"
                                         placeholder="Cost"
                                         value={input?.freestylecost}
@@ -1102,7 +1046,7 @@ const StartQuote = () => {
                 </div>
                 {selectedProject && (
                   <>
-                    <div className="flex items-center text-center my-2 gap-4">
+                    <div className="flex items-center md:flex-row flex-col text-center my-2 gap-4">
                       <button
                         className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center`}
                         type="button"
@@ -1295,7 +1239,7 @@ const StartQuote = () => {
                         </button>
                       </div>
                     )}
-                    <div className="flex items-center text-center my-2 gap-4">
+                    <div className="flex items-center md:flex-row flex-col text-center my-2 gap-4">
                       <button
                         className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center`}
                         type="button"
@@ -1334,7 +1278,7 @@ const StartQuote = () => {
         <AnimatePresence>
           {show && (
             <motion.div
-              className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50"
+              className="fixed overflow-y-scroll inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50"
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -1342,7 +1286,8 @@ const StartQuote = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.div
-                className="bg-white shadow-md rounded-xl p-6 w-full max-w-4xl relative"
+                className="bg-white shadow-md rounded-xl p-6 w-full max-w-4xl mx-4 sm:mx-8 relative 
+                md:top-0 top-60"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
@@ -1374,11 +1319,8 @@ const StartQuote = () => {
                 <div className="bg-white rounded-xl">
                   {/* First Row */}
                   <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full md:w-1/2 px-3">
-                      <label
-                        htmlFor="projectName"
-                        className="block text-gray-700"
-                      >
+                    <div className="w-full sm:w-1/2 px-3">
+                      <label htmlFor="projectName" className="block text-gray-700">
                         Project Name
                       </label>
                       <input
@@ -1391,7 +1333,7 @@ const StartQuote = () => {
                         className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
-                    <div className="w-full md:w-1/2 px-3">
+                    <div className="w-full sm:w-1/2 px-3">
                       <label htmlFor="date" className="block text-gray-700">
                         Date
                       </label>
@@ -1408,11 +1350,8 @@ const StartQuote = () => {
 
                   {/* Second Row */}
                   <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full md:w-1/2 px-3">
-                      <label
-                        htmlFor="companyName"
-                        className="block text-gray-700"
-                      >
+                    <div className="w-full sm:w-1/2 px-3">
+                      <label htmlFor="companyName" className="block text-gray-700">
                         Company Name
                       </label>
                       <input
@@ -1425,7 +1364,7 @@ const StartQuote = () => {
                         className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
-                    <div className="w-full md:w-1/2 px-3">
+                    <div className="w-full sm:w-1/2 px-3">
                       <label htmlFor="email" className="block text-gray-700">
                         Email Address of the Purchaser
                       </label>
@@ -1444,12 +1383,9 @@ const StartQuote = () => {
                   {/* Third Row */}
                   <div className="flex flex-wrap -mx-3 mb-4">
                     {/* BILL TO */}
-                    <div className="w-full md:w-1/2 px-3">
+                    <div className="w-full sm:w-1/2 px-3">
                       <h5 className="font-semibold text-gray-700">BILL TO</h5>
-                      <label
-                        htmlFor="billToName"
-                        className="block text-gray-700"
-                      >
+                      <label htmlFor="billToName" className="block text-gray-700">
                         Name
                       </label>
                       <input
@@ -1461,10 +1397,7 @@ const StartQuote = () => {
                         placeholder="Enter name"
                         className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                       />
-                      <label
-                        htmlFor="billToAddress"
-                        className="block text-gray-700"
-                      >
+                      <label htmlFor="billToAddress" className="block text-gray-700">
                         Address
                       </label>
                       <input
@@ -1479,12 +1412,9 @@ const StartQuote = () => {
                     </div>
 
                     {/* SHIP TO */}
-                    <div className="w-full md:w-1/2 px-3">
+                    <div className="w-full sm:w-1/2 px-3">
                       <h5 className="font-semibold text-gray-700">SHIP TO</h5>
-                      <label
-                        htmlFor="shipToName"
-                        className="block text-gray-700"
-                      >
+                      <label htmlFor="shipToName" className="block text-gray-700">
                         Name
                       </label>
                       <input
@@ -1496,10 +1426,7 @@ const StartQuote = () => {
                         placeholder="Enter name"
                         className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
                       />
-                      <label
-                        htmlFor="shipToAddress"
-                        className="block text-gray-700"
-                      >
+                      <label htmlFor="shipToAddress" className="block text-gray-700">
                         Address
                       </label>
                       <input
@@ -1516,7 +1443,7 @@ const StartQuote = () => {
 
                   {/* Checkboxes and Button */}
                   <div className="flex flex-wrap -mx-3">
-                    <div className="w-full md:w-1/2 px-3">
+                    <div className="w-full sm:w-1/2 px-3">
                       <label className="flex items-center text-gray-700">
                         <input
                           type="checkbox"
@@ -1533,7 +1460,7 @@ const StartQuote = () => {
                         Internal use
                       </label>
                     </div>
-                    <div className="w-full md:w-1/2 px-3">
+                    <div className="w-full sm:w-1/2 px-3">
                       <label className="flex items-center text-gray-700">
                         <input
                           type="checkbox"
@@ -1554,7 +1481,7 @@ const StartQuote = () => {
 
                   {selectedValues && (
                     <button
-                      className={`bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center mt-4`}
+                      className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center mt-4"
                       type="button"
                       onClick={handleGeneratePDF}
                       disabled={loading2}
@@ -1580,6 +1507,7 @@ const StartQuote = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
       </motion.div>
     </div>
   );

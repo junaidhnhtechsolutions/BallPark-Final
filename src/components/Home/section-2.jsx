@@ -102,12 +102,12 @@ const Section2 = () => {
 
       <div className="relative">
         <div className=" mx-auto max-w-screen-2xl ">
-          <div className="h-[10%]   z-40 top-0 px-2 uppercase mx-auto text-4xl py-8 font-normal  flex text-white  justify-center items-center ">
-            <h1 className="md:text-5xl md:leading-[76px] text-center flex justify-center text-white items-center uppercase w-[50%] mx-auto">
+          <div className="h-[10%] z-40 top-0 px-2 uppercase mx-auto text-4xl py-8 font-normal  flex text-white  justify-center items-center ">
+            <h1 className="md:text-5xl md:leading-[76px] text-center flex justify-center text-white items-center uppercase md:w-[50%] mx-auto">
               Plan Your Event <br /> Budget in Minutes
             </h1>
           </div>
-          <div className="flex w-[60%] mx-auto text-white  ">
+          <div className="flex md:w-[60%] w-full mx-auto text-white ">
             <div className="md:md:w-[70%]"></div>
             <div className="md:md:w-[45%]">
               <h1 className="text-[15px] font-semibold my-4 text-white  tracking-widest uppercase flex items-center gap-4">
@@ -121,7 +121,7 @@ const Section2 = () => {
               </p>
             </div>
           </div>
-          <div className="flex w-[60%] mx-auto text-white  ">
+          <div className="flex md:w-[60%] w-full mx-auto text-white ">
             <div className="md:w-[70%]"></div>
             <div className="md:w-[45%]">
               <h1 className="text-[15px] font-semibold my-4  text-white  tracking-widest uppercase flex items-center gap-4">
@@ -135,7 +135,7 @@ const Section2 = () => {
               </p>
             </div>
           </div>
-          <div className="flex w-[60%] mx-auto text-white  ">
+          <div className="flex md:w-[60%] w-full mx-auto text-white ">
             <div className="md:w-[70%]"></div>
             <div className="md:w-[45%]">
               <h1 className="text-[15px] font-semibold my-4 text-white  tracking-widest uppercase flex items-center gap-4">
@@ -151,7 +151,7 @@ const Section2 = () => {
               </p>
             </div>
           </div>
-          <div className="flex w-[60%] mx-auto text-white  ">
+          <div className="flex md:w-[60%] w-full mx-auto text-white ">
             <div className="md:w-[70%]"></div>
             <div className="md:w-[45%]">
               <h1 className="text-[15px] font-semibold my-4 text-white  tracking-widest uppercase flex items-center gap-4">
@@ -168,7 +168,7 @@ const Section2 = () => {
               </p>
             </div>
           </div>
-          <div className="flex w-[60%] mx-auto text-white  ">
+          <div className="flex md:w-[60%] w-full mx-auto text-white ">
             <div className="md:w-[70%]"></div>
             <div className="md:w-[45%]">
               <h1 className="text-[15px] font-semibold my-4 text-white  tracking-widest uppercase flex items-center gap-4">
@@ -200,7 +200,7 @@ const Section2 = () => {
               </ul>
             </div>
           </div>
-          <div className="flex w-[60%] mx-auto text-white  ">
+          <div className="flex md:w-[60%] w-full mx-auto text-white ">
             <div className="md:w-[70%]"></div>
             <div className="md:w-[45%]">
               <h1 className="text-[15px] font-semibold my-4 text-white  tracking-widest uppercase flex items-center gap-4">
@@ -219,7 +219,7 @@ const Section2 = () => {
           <div>
             <div className="flex flex-col items-center justify-center">
               {" "}
-              <h1 className="text-center w-[60%] mx-auto md:text-4xl font-bold my-4 text-white p-2 rounded uppercase">
+              <h1 className="text-center md:w-[60%] w-full mx-auto md:text-4xl font-bold my-4 text-white p-2 rounded uppercase">
                 No more smoke and mirrors. Lets get onto the enjoyable stuff
               </h1>
               <Link

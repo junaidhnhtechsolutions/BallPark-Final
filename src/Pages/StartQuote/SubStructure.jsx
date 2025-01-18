@@ -74,18 +74,17 @@ const SubStructureComponent = ({
   return (
     <>
       <div
-        className={`grid gap-4 relative md:grid-cols-${
-          subStructureFilter.length > 0 && subStructureCategorySet.length > 0
+        className={`grid gap-4 relative md:grid-cols-${subStructureFilter.length > 0 && subStructureCategorySet.length > 0
             ? 3
             : subStructureFilter.length > 0
-            ? 2
-            : 1
-        }`}
+              ? 2
+              : 1
+          }`}
       >
         {/* First Select */}
         <div>
           <select
-            className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
             onChange={handleSelect}
             defaultValue=""
           >
@@ -119,7 +118,7 @@ const SubStructureComponent = ({
         {subStructureFilter.length > 0 && (
           <div>
             <select
-              className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
               onChange={handleSelectSubStructureCategorySet}
               defaultValue=""
             >
@@ -139,7 +138,7 @@ const SubStructureComponent = ({
         {subStructureCategorySet.length > 0 && (
           <div>
             <select
-              className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
               onChange={handleSelectSubStructureName}
               defaultValue=""
             >
@@ -158,56 +157,55 @@ const SubStructureComponent = ({
       {subStructureCategoryName.length > 0 &&
         subStructureCategoryName.map((item) => (
           <div key={item.id} className="w-full my-4">
-            <table
-              className={`w-full border-collapse border ${
-                loading2 ? "table-fixed" : ""
-              }`}
-            >
-              <thead>
-                <tr className="bg-gray-200">
-                  <th className="border px-4 py-2 text-left w-72">Name</th>
-                  <th className="border px-4 py-2 text-left w-72">
-                    Cost per Sheet
-                  </th>
-                  <th className="border px-4 py-2 text-left w-72">Quantity</th>
-                  <th className="border px-4 py-2 text-left w-72">CNC Time</th>
-                  <th className="border px-4 py-2 text-left w-72">
-                    Workshop Labour
-                  </th>
-                  <th className="border px-4 py-2 text-left w-72">
-                    Total Cost
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {item?.ranking_data?.map((rankItem) => (
-                  <tr
-                    key={rankItem.id}
-                    className="even:bg-gray-100 odd:bg-white hover:bg-gray-50"
-                  >
-                    {setSubStructureCost(rankItem?.Total_cost)}
-                    <td className="border px-4 py-2">{rankItem?.name || ""}</td>
-                    <td className="border px-4 py-2">
-                      {rankItem?.Cost_per_sheet || ""}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {rankItem?.Quantity || ""}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {rankItem?.CNC_time || ""}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {rankItem?.Workshop_labour || ""}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {rankItem?.Total_cost || ""}
-                    </td>
+            <div className="overflow-x-auto">
+              <table
+                className={`w-full border-collapse border ${loading2 ? "table-fixed" : ""}`}
+              >
+                <thead>
+                  <tr className="bg-gray-200">
+                    <th className="border px-2 py-1 text-left sm:w-1/4 md:w-1/6">Name</th>
+                    <th className="border px-2 py-1 text-left sm:w-1/4 md:w-1/6">
+                      Cost per Sheet
+                    </th>
+                    <th className="border px-2 py-1 text-left sm:w-1/4 md:w-1/6">Quantity</th>
+                    <th className="border px-2 py-1 text-left sm:w-1/4 md:w-1/6">CNC Time</th>
+                    <th className="border px-2 py-1 text-left sm:w-1/4 md:w-1/6">
+                      Workshop Labour
+                    </th>
+                    <th className="border px-2 py-1 text-left sm:w-1/4 md:w-1/6">Total Cost</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {item?.ranking_data?.map((rankItem) => (
+                    <tr
+                      key={rankItem.id}
+                      className="even:bg-gray-100 odd:bg-white hover:bg-gray-50"
+                    >
+                      {setSubStructureCost(rankItem?.Total_cost)}
+                      <td className="border px-2 py-1 text-sm sm:px-4 sm:py-2">{rankItem?.name || ""}</td>
+                      <td className="border px-2 py-1 text-sm sm:px-4 sm:py-2">
+                        {rankItem?.Cost_per_sheet || ""}
+                      </td>
+                      <td className="border px-2 py-1 text-sm sm:px-4 sm:py-2">
+                        {rankItem?.Quantity || ""}
+                      </td>
+                      <td className="border px-2 py-1 text-sm sm:px-4 sm:py-2">
+                        {rankItem?.CNC_time || ""}
+                      </td>
+                      <td className="border px-2 py-1 text-sm sm:px-4 sm:py-2">
+                        {rankItem?.Workshop_labour || ""}
+                      </td>
+                      <td className="border px-2 py-1 text-sm sm:px-4 sm:py-2">
+                        {rankItem?.Total_cost || ""}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         ))}
+
     </>
   );
 };

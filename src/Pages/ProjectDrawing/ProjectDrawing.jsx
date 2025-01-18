@@ -68,7 +68,7 @@ const ProjectDrawing = () => {
         />
 
         <motion.div
-          className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center items-center flex-col md:my-20"
+          className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center items-center flex-col my-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -82,7 +82,7 @@ const ProjectDrawing = () => {
               <span className="ml-2">Back</span>
             </Link>
           </div>
-          <h3 className="text-center text-4xl font-bold text-white">
+          <h3 className="text-center md:text-4xl text-3xl font-bold text-white md:mt-5 mt-10">
             Project Drawing
           </h3>
           {currentItems?.length > 0 ? (

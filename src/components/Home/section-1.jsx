@@ -47,7 +47,7 @@ export default function Section1() {
   }, []);
 
   return (
-    <div className="flex justify-end relative items-end h-[100vh] bg-[#00083C] overflow-hidden w-full">
+    <div className="flex justify-end relative items-end h-auto md:h-[100vh] bg-[#00083C] overflow-hidden w-full">
       <Particles
         className="absolute inset-0 h-fit z-30"
         quantity={100}
@@ -55,30 +55,35 @@ export default function Section1() {
         color={"#ffffff"}
         refresh
       />
-      <div className="absolute  1500px:h-[700px] 1500px:w-[700px] 1100px:h-[600px] 1100px:w-[600px] h-screen  w-full hero_animation 1100px:left-8 1500px:left-14"></div>
+      <div className="absolute 1500px:h-[700px] 1500px:w-[700px] 1100px:h-[600px] 1100px:w-[600px] h-screen w-full hero_animation 1100px:left-8 1500px:left-14"></div>
 
-      <div className="flex flex-col justify-end relative items-end h-[100vh] p-5">
+      <div className="flex flex-col justify-end relative items-end h-auto p-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
-          <div className="flex flex-col justify-end items-start text-white">
-            <h1 className="text-[24px] my-2 text-[#ffffff] capitalize w-[100%]">
+          {/* Text Content */}
+          <div className="flex flex-col justify-end items-start text-white space-y-6">
+            <h1 className="text-[20px] md:text-[24px] text-white capitalize w-full">
               Did you enter the creative industry to spend your time crunching
               numbers and sending out one thousand emails?
             </h1>
-            <h1 className="text-[24px] my-2 text-[#ffffff] capitalize w-[100%]">
+            <h1 className="text-[20px] md:text-[24px] text-white capitalize w-full">
               Neither did we.
             </h1>
-            <h1 className="text-[24px] my-2 text-[#ffffff] capitalize w-[100%]">
+            <h1 className="text-[20px] md:text-[24px] text-white capitalize w-full">
               Welcome to the first-ever hybrid AI platform that makes creating a
               ballpark estimate for an event as effortless as writing a shopping
               list.
             </h1>
           </div>
-          <div className="relative w-full h-screen overflow-hidden">
+
+          {/* Intro Slider */}
+          <div className="relative w-full h-auto md:h-screen overflow-hidden">
             <div
               id="intro-slider"
-              className="h-screen p-10 top-0 left-0 font-spaceGrotesk w-full flex flex-col items-center gap-10 tracking-tight"
+              className="h-auto md:h-screen p-10 font-spaceGrotesk w-full flex flex-col items-center gap-10 tracking-tight"
             >
               <div className="absolute top-0 1500px:h-[700px] 1500px:w-[700px] 1100px:h-[600px] 1100px:w-[600px] h-screen w-full 1100px:left-8 1500px:left-14"></div>
+
+              {/* SVG Animation */}
               <svg
                 version="1.1"
                 id="Layer_1"
@@ -128,7 +133,9 @@ export default function Section1() {
                   </style>
                 </g>
               </svg>
-              <p className="text-white z-20 uppercase tracking-widest absolute font-Roboto text-sm top-[53%] animate-bounce">
+
+              {/* Ball Park Text */}
+              <p className="text-white z-20 uppercase tracking-widest absolute font-Roboto md:text-sm text-[10px] top-[53%] animate-bounce">
                 Ball Park
               </p>
             </div>

@@ -38,7 +38,7 @@ const Offtheshelf = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-96"
+            className="md:w-96 w-72"
           >
             <select className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500">
               <option selected value="">

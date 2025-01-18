@@ -49,7 +49,7 @@ const PostProject = () => {
         <Particles className="absolute inset-0 z-0" quantity={150} ease={100} color={"#ffffff"} refresh />
         
         <motion.div
-          className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center items-center flex-col md:my-20"
+          className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center items-center flex-col my-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -60,7 +60,7 @@ const PostProject = () => {
               <span className="ml-2">Back</span>
             </Link>
           </div>
-          <h3 className="text-center text-4xl font-bold text-white">Past Project</h3>
+          <h3 className="text-center text-4xl font-bold text-white mt-5">Past Project</h3>
 
           <div>
             {currentItems?.length > 0 ? (
