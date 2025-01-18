@@ -5,8 +5,10 @@ import { Outlet } from "react-router";
 export default function HomeLayout() {
   return (
     <>
-    <Cursor/>
-      <Header/>
+      <div className="md:block hidden">
+        <Cursor />
+      </div>
+      <Header />
       <Outlet />
     </>
   );

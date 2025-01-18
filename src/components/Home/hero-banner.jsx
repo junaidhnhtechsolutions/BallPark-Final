@@ -12,7 +12,7 @@ export default function Herobanner() {
   const { showIntro } = useSelector((state) => state.loader);
   const [gifShow, setGifShow] = useState(false);
   const [startAnimation, setStartAnimation] = useState(false);
-  console.log(gifShow);
+  const [imageSrc, setImageSrc] = useState("/assets/banner3.jpg");
 
   useLayoutEffect(() => {
     if (!startAnimation) return;
@@ -63,6 +63,24 @@ export default function Herobanner() {
     dispatch(setShowIntro(false));
     setGifShow(true);
   };
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width <= 768) {
+        setImageSrc("/assets/mobile.jpg");
+      } else {
+        setImageSrc("/assets/banner3.jpg");
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
 
   return (
     <>
@@ -136,10 +154,8 @@ export default function Herobanner() {
 
         <div className="relative h-screen w-full text-white">
           <img
-            srcSet="/assets/banner3.jpg 1024w, /assets/mobile.jpg 600w"
-            sizes="(max-width: 600px) 100vw, 1024px"
-            src="/assets/banner3.jpg"
-            className="absolute top-0 left-0 w-full h-screen object-cover -z-10"
+            src={imageSrc}
+            className="absolute top-0 left-0 w-full h-screen object-fill md:object-cover -z-10"
           />
 
           <div className="relative h-screen flex justify-center items-center">
