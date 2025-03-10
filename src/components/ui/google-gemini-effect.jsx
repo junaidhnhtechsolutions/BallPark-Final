@@ -18,7 +18,7 @@ export const GoogleGeminiEffect = ({
           className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto "
         >
           <CoolMode>
-            <Link to={"https://ball-park-beta.vercel.app/login"}>Join Us</Link>
+            <Link to={"/login"}>Join Us</Link>
           </CoolMode>
         </button>
       </div>

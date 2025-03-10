@@ -160,18 +160,7 @@ export default function Herobanner() {
 
           <div className="relative h-screen flex justify-center items-center">
             <div className="relative max-w-screen-2xl md:w-[30%] 2xl:w-[20%] mx-auto flex flex-col items-center justify-center h-screen z-30 pointer-events-auto">
-              {/* <CoolMode>
-                <Link
-                  to={"https://ball-park-beta.vercel.app/login"}
-                  className="bg-white px-8 text-center mb-4 py-2 hover:bg-[#1B2978] hover:text-white transition-all ease-linear rounded-sm text-[#1B2978]"
-                >
-                  Join Us
-                </Link>
-              </CoolMode>
-              <p className="text-center">
-                Set builders, creative agencies, and designers alike. Witness the
-                first AI to cost your designs and technical drawings
-              </p> */}
+              {/*  */}
             </div>
           </div>
         </div>

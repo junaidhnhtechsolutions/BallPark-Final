@@ -223,8 +223,7 @@ const Section2 = () => {
                 No more smoke and mirrors. Lets get onto the enjoyable stuff
               </h1>
               <Link
-                to={"https://ball-park-beta.vercel.app/login"}
-                // className="text-white  font-semibold bg-[#1B2978] p-2 px-6 text-lg rounded-sm hover:bg-[#1b2978c4] hover:text-white"
+                to={"/login"}
                 className="bg-white text-black rounded-md p-3 px-6 flex justify-center items-center hover:bg-black hover:text-white transition-all"
               >
                 Let's Get Started
