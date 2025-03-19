@@ -20,6 +20,7 @@ import ContactUs from "./PagesNew/Contactus";
 import Home from "./PagesNew/Home";
 import HomeLayout from "./layout/home-layout";
 import MaterialList from "./Pages/MaterialList/MaterialList";
+import SignupForm from "./Auth/SignUpForm";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,7 @@ function App() {
       </>
     );
   }
-  
+
   return (
     <>
       <BrowserRouter>
@@ -71,6 +72,7 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="Ballpark-picture" element={<Ballparkpicture />} />
                 <Route path="login" element={<LoginForm />} />
+                <Route path="signup" element={<SignupForm />} />
                 <Route path="navigating-park" element={<NavPark />} />
                 <Route path="ball-park" element={<Ball />} />
                 <Route path="contact-us" element={<ContactUs />} />

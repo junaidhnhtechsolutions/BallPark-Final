@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaArrowLeft } from "react-icons/fa6";
-import Particles from "../../components/ui/particles";
 
 const ResulteData = () => {
   const location = useLocation();
@@ -17,14 +16,8 @@ const ResulteData = () => {
 
   return (
     <>
-      <div className="flex w-full flex-col min-h-screen items-center justify-start bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-auto overflow-x-hidden">
-        <Particles
-          className="absolute inset-0 z-0"
-          quantity={150}
-          ease={100}
-          color={"#ffffff"}
-          refresh
-        />
+      <div className="flex w-full flex-col min-h-screen items-center justify-start bg-[#00b4d8] relative overflow-auto overflow-x-hidden">
+      
         <motion.div
           className="w-full max-w-5xl p-6 my-10 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center items-center flex-col"
           initial={{ opacity: 0 }}

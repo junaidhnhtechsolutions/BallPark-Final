@@ -18,7 +18,6 @@ import { Bezier } from "bezier-js";
 import { motion } from "framer-motion";
 import BaseUrl from "../../Auth/BaseUrl";
 import "./Cost.css";
-import Particles from "../../components/ui/particles";
 import { FaArrowLeft } from "react-icons/fa6";
 import Loader from "../../components/Loader";
 
@@ -616,16 +615,10 @@ const CostDrawing = () => {
     <>
 
       {loading && <Loader />}
-      <div className="flex w-full flex-col min-h-screen items-center justify-center bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-hidden">
-        <Particles
-          className="absolute inset-0 z-0"
-          quantity={150}
-          ease={100}
-          color={"#ffffff"}
-          refresh
-        />
+      <div className="flex w-full flex-col min-h-screen items-center justify-center bg-[#00b4d8] relative overflow-hidden">
+     
         <motion.div
-          className="w-full max-w-5xl p-6 rounded-lg shadow-2xl bg-opacity-80 relative flex items-center flex-col my-20"
+          className="w-full max-w-5xl relative flex items-center flex-col my-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}

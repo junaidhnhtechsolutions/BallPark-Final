@@ -1,0 +1,60 @@
+import React from 'react'
+
+function NewSectionThree() {
+  return (
+    <>
+      <section className="relative min-h-[600px] w-full bg-[#00b4d8] flex items-center justify-center p-8 overflow-hidden">
+        <div className="absolute top-[15%] left-[8%]">
+          <img
+            src="/assets/section-three-one.png"
+            className="w-72"
+            alt="Bubble"
+          />
+        </div>
+
+        <div className="absolute top-[6%] left-[36%]">
+          <img
+            src="/assets/section-three-two.png"
+            className="w-72"
+            alt="Bubble"
+          />
+        </div>
+
+
+        <div className="absolute top-[18%] right-[10%]">
+          <img
+            src="/assets/section-three-three.png"
+            className="w-72"
+            alt="Bubble"
+          />
+        </div>
+
+        <div className="absolute bottom-[2%] left-[25%]">
+          <img
+            src="/assets/section-three-four.png"
+            className="w-72"
+            alt="Bubble"
+          />
+        </div>
+
+        <div className="text-center z-10 relative top-5 bottom-5">
+          <img src="/assets/section-two-text.png" className='max-w-3xl ' alt="" />
+        </div>
+
+        <div className="absolute bottom-[2%] right-[14%]">
+          <img
+            src="/assets/section-three-five.png"
+            className="w-72"
+            alt="Bubble"
+          />
+        </div>
+
+        <div className="absolute bottom-0 left-4">
+          <img src="/assets/section-two-men.png" className="w-56" alt="Baseball player silhouette" />
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default NewSectionThree

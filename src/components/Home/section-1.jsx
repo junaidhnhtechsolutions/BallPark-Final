@@ -59,7 +59,6 @@ export default function Section1() {
 
       <div className="flex flex-col justify-end relative items-end h-auto p-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
-          {/* Text Content */}
           <div className="flex flex-col justify-end items-start text-white space-y-6">
             <h1 className="text-[20px] md:text-[24px] text-white capitalize w-full">
               Did you enter the creative industry to spend your time crunching

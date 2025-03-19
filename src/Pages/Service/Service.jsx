@@ -16,18 +16,14 @@ const Service = () => {
 
   return (
     <>
-      <div className="flex w-full items-center h-auto md:h-[100vh] bg-gradient-to-br from-[#00083c] via-[#73cddd] relative">
-        <Particles
-          className="absolute inset-0 z-0"
-          quantity={150}
-          ease={100}
-          color={"#ffffff"}
-          refresh
-        />
-
+      <section className="relative min-h-[600px] w-full bg-gradient-to-b from-[#00b4d8] to-[#0096c7] flex items-center justify-center p-8 flex-col">
+        <img src="/assets/dashboard-one-text.png" className="w-6/12" alt="" />
+        <img src="/assets/dashboard-one-img.png" className="w-6/12" alt="" />
+      </section>
+      <div className="relative min-h-[600px] w-full bg-gradient-to-b from-[#00b4d8] to-[#0096c7] flex items-center justify-center p-8 flex-col">
         <div className="container mx-auto px-6 md:px-20 md:my-0 my-20 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 w-full">
           <motion.div
-            className="bg-[#00083c] h-44 md:h-96 rounded-2xl flex justify-center items-center cursor-pointer"
+            className="bg-[#008cc2] border-2 border-white h-44 md:h-96 rounded-2xl flex justify-center items-center cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
             onClick={() => navigatePage("/new-project")}
@@ -43,7 +39,7 @@ const Service = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
             <motion.div
-              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center cursor-pointer"
+              className="bg-[#008cc2] border-2 border-white h-44 rounded-2xl flex justify-center items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
               onClick={() => navigatePage("/post-project")}
@@ -58,7 +54,7 @@ const Service = () => {
             </motion.div>
 
             <motion.div
-              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center cursor-pointer"
+              className="bg-[#008cc2] border-2 border-white h-44 rounded-2xl flex justify-center items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
               onClick={() => navigatePage("/profile")}
@@ -73,7 +69,7 @@ const Service = () => {
             </motion.div>
 
             <motion.div
-              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center cursor-pointer"
+              className="bg-[#008cc2] border-2 border-white h-44 rounded-2xl flex justify-center items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
               onClick={() => navigatePage("/Ballpark-picture")}
@@ -88,7 +84,7 @@ const Service = () => {
             </motion.div>
 
             <motion.div
-              className="bg-[#00083c] h-44 rounded-2xl flex justify-center items-center cursor-pointer"
+              className="bg-[#008cc2] border-2 border-white h-44 rounded-2xl flex justify-center items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
               onClick={() => navigatePage("/material-list")}

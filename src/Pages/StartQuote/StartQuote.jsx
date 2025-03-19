@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MdCancel, MdDelete, MdOutlineCancel } from "react-icons/md";
 import BaseUrl from "../../Auth/BaseUrl";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,10 +11,9 @@ import Tabs from "react-bootstrap/Tabs";
 import MaterialComponent from "./MaterialComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import Particles from "../../components/ui/particles";
 import { FaArrowLeft, FaEdit } from "react-icons/fa";
 import SubStructure from "./SubStructure";
-import { FaFilePdf, FaPlus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
 
 const StartQuote = () => {
   const [key, setKey] = useState("Past Project");
@@ -39,11 +38,9 @@ const StartQuote = () => {
   const [hideMarkup2, setHideMarkup2] = useState(true);
   const token = localStorage.getItem("token");
   const OfftheshelfCost = localStorage.getItem("combinedTotal");
-  const navigate = useNavigate();
   const [inputFields, setInputFields] = useState([]);
   const [selectedValues, setSelectedValues] = useState("");
   const [SubStructureCost, setSubStructureCost] = useState(0);
-  // const [Costdymic, setCostdymic] = useState(0);
   const [formData, setFormData] = useState({
     projectName: "",
     date: "",
@@ -449,21 +446,15 @@ const StartQuote = () => {
   };
 
   return (
-    <div className="flex w-full flex-col min-h-screen items-center justify-start bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-auto overflow-x-hidden">
-      <Particles
-        className="absolute inset-0 z-0"
-        quantity={150}
-        ease={100}
-        color={"#ffffff"}
-        refresh
-      />
+    <div className="flex w-full flex-col min-h-screen items-center justify-start bg-[#00b4d8] relative overflow-auto overflow-x-hidden">
+
       <motion.div
-        className="w-full max-w-5xl md:p-6 p-4 rounded-lg shadow-2xl bg-opacity-80 relative flex justify-center items-center flex-col my-20"
+        className="w-full max-w-5xl md:p-6 relative flex justify-center items-center flex-col my-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="absolute top-5 left-5">
+        <div className="absolute top-14 left-5">
           <Link
             to="/new-project"
             className="flex items-center text-white text-xl"
@@ -493,7 +484,7 @@ const StartQuote = () => {
             eventKey="Past Project"
             title="Past Project"
             tabClassName={`w-full register text-lg font-medium w-full p-3 rounded-2xl flex justify-center text-center ${key === "Past Project"
-              ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
+              ? "bg-[#00b4d8] text-white"
               : "text-black"
               }`}
           >
@@ -1070,7 +1061,7 @@ const StartQuote = () => {
             eventKey="Off the Shelf"
             title="Off the Shelf"
             tabClassName={`w-ful register text-lg font-medium w-full p-3 rounded-2xl text-center flex justify-center items-center ${key === "Off the Shelf"
-              ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
+              ? "bg-[#00b4d8] text-white"
               : "text-black"
               }`}
           >
@@ -1263,14 +1254,14 @@ const StartQuote = () => {
             eventKey="Ballpark 2.0 Pictures"
             title="Ballpark 2.0 Pictures"
             tabClassName={`w-ful register text-lg font-medium w-full p-3 rounded-2xl text-center flex justify-center items-center ${key === "Ballpark 2.0 Pictures"
-              ? "bg-gradient-to-br text-white from-[#00083c] via-[#00083c]"
+              ? "bg-[#00b4d8] text-white"
               : "text-black"
               }`}
           >
             {key === "Ballpark 2.0 Pictures" && (
-              <p className="text-center text-white mt-5 text-2xl font-bold">
-                Coming soon...
-              </p>
+              <div className="flex justify-center">
+                <img src="/assets/dashboard/comming-soon.png" className="w-96" alt="" />
+              </div>
             )}
           </Tab>
         </Tabs>

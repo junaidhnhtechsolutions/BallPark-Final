@@ -4,6 +4,13 @@ import Section3 from "../components/Home/section-3";
 import Template from "../layout/template";
 import Section1 from "../components/Home/section-1";
 import { useEffect, useState } from "react";
+import NewSectionOne from "../components/Home/NewSectionOne";
+import NewSectionTwo from "../components/Home/NewSectionTwo";
+import NewSectionThree from "../components/Home/NewSectionThree";
+import NewSectionFour from "../components/Home/NewSectionFour";
+import NewSectionFive from "../components/Home/NewSectionFive";
+import NewSectionSix from "../components/Home/NewSectionSix";
+import HomeSliderSection from "../components/Home/HomeSliderSection";
 
 const Home = () => {
   const [progress, setProgress] = useState(0);
@@ -25,7 +32,7 @@ const Home = () => {
   }, []);
   return (
     <Template>
-      <div className="relative ">
+      <div className="relative">
         <div className="fixed top-0 left-0 w-full h-1 z-40 bg-gray-300">
           <div
             className="bg-[#FF007A] h-full transition-all"
@@ -33,7 +40,31 @@ const Home = () => {
           />
         </div>
         <Herobanner />
+        <div>
+          <NewSectionOne />
+        </div>
+        <div>
+          <NewSectionTwo />
+        </div>
+        <div>
+          <NewSectionThree />
+        </div>
+        <div>
+          <NewSectionFour />
+        </div>
+        <div>
+          <NewSectionFive />
+        </div>
+        <div>
+          <HomeSliderSection />
+        </div>
         <div id="about">
+          <Section2 />
+        </div>
+        <div>
+          <NewSectionSix />
+        </div>
+        {/* <div id="about">
           <Section1 />
         </div>
         <div id="about">
@@ -41,10 +72,12 @@ const Home = () => {
         </div>
         <div id="services">
           <Section3 />
-        </div>
+        </div> */}
       </div>
+
     </Template>
   );
 };
 
 export default Home;
+
