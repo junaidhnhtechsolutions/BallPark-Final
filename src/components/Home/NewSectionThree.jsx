@@ -41,7 +41,7 @@ function NewSectionThree() {
           <img src="/assets/section-two-text.png" className='max-w-3xl ' alt="" />
         </div>
 
-        <div className="absolute bottom-[2%] right-[14%]">
+        <div className="absolute bottom-[2%] right-[20%]">
           <img
             src="/assets/section-three-five.png"
             className="w-72"
