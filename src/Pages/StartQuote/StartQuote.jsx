@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
@@ -33,6 +33,7 @@ const StartQuote = () => {
     freestyle: "",
     freestylecost: "",
   });
+  const colorRef = useRef(null);
   const [loading2, setLoading2] = useState(false);
   const [hideMarkup, setHideMarkup] = useState(true);
   const [hideMarkup2, setHideMarkup2] = useState(true);
@@ -77,14 +78,6 @@ const StartQuote = () => {
     setInputFields(fields);
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const handleInputChange1 = (e) => {
-    const { name, value } = e.target;
-    setInputValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
 
   // pdf modal hare
   const [show, setShow] = useState(false);
@@ -233,7 +226,9 @@ const StartQuote = () => {
   );
   const handleGeneratePDF = async () => {
     const { freestyle } = inputValues;
-    // Check if any freestyle or freestylecost field is empty
+    if (colorRef?.current) {
+      colorRef.current.style.color = 'black';
+    }
     if (selectedValues === "Internal use") {
       if (
         !formData?.projectName?.trim() ||
@@ -365,13 +360,14 @@ const StartQuote = () => {
       setLoading2(false);
       console.error("Error generating PDF:", error);
     } finally {
-      // Show buttons again after PDF is generated
+      if (colorRef?.current) {
+        colorRef.current.style.color = 'white';
+      }
       setHideMarkup(true);
       const buttons = document.querySelectorAll("button");
       const select = document.querySelectorAll("select");
       select.forEach((select) => (select.style.display = "flex"));
       buttons.forEach((button) => (button.style.display = "flex"));
-
       setFormData({
         projectName: "",
         date: "",
@@ -421,12 +417,7 @@ const StartQuote = () => {
     const cost = parseFloat(field.freestylecost);
     return sum + (isNaN(cost) ? 0 : cost); // Add 0 if NaN
   }, 0);
-  console.log(
-    freestylecost,
-    SubStructureCost,
-    editedData?.total_combined_cost ?? 0,
-    "inputFields ==>"
-  );
+
   // Add the total freestylecost to the sum of valid TotalCosts
   const combinedTotal =
     // validCosts?.reduce((sum, cost) => sum + cost, 0) +
@@ -867,7 +858,7 @@ const StartQuote = () => {
                           <div className="text-center my-3">
                             <button
                               type="button"
-                              className=" bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg"
+                              className="flex justify-center items-center bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg"
                               onClick={handleAddFields}
                             >
                               <FontAwesomeIcon icon={faPlus} /> Add Free Style
@@ -1039,14 +1030,14 @@ const StartQuote = () => {
                   <>
                     <div className="flex items-center md:flex-row flex-col text-center my-2 gap-4">
                       <button
-                        className={`flex  bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
+                        className={`flex justify-center bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
                         type="button"
                         onClick={handleShow}
                       >
                         Save PDF
                       </button>
                       <button
-                        className={`flex  bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
+                        className={`flex justify-center bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
                         type="button"
                       >
                         Email Suppliers
@@ -1149,6 +1140,7 @@ const StartQuote = () => {
                       formData={formData}
                       hideMarkup2={hideMarkup2}
                       loading2={loading2}
+                      colorRef={colorRef}
                     />
                     {inputFields?.length !== 0 && hideMarkup && (
                       <label
@@ -1162,7 +1154,7 @@ const StartQuote = () => {
                       <div className="text-center my-3">
                         <button
                           type="button"
-                          className=" bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg"
+                          className="flex justify-center items-center bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg"
                           onClick={handleAddFields}
                         >
                           <FontAwesomeIcon icon={faPlus} /> Add Free Style
@@ -1232,14 +1224,14 @@ const StartQuote = () => {
                     )}
                     <div className="flex items-center md:flex-row flex-col text-center my-2 gap-4">
                       <button
-                        className={`flex  bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
+                        className={`flex justify-center bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
                         type="button"
                         onClick={handleShow}
                       >
                         Save PDF
                       </button>
                       <button
-                        className={`flex  bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
+                        className={`flex justify-center bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
                         type="button"
                       >
                         Email Suppliers
@@ -1277,8 +1269,7 @@ const StartQuote = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.div
-                className="bg-white shadow-md rounded-xl p-6 w-full max-w-4xl mx-4 sm:mx-8 relative 
-                md:top-0 top-60"
+                className="bg-[#00b4d8] shadow-md rounded-xl p-6 w-full max-w-4xl mx-4 sm:mx-8 relative md:top-0 top-60 text-white"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
@@ -1287,97 +1278,85 @@ const StartQuote = () => {
               >
                 {/* Close Button */}
                 <button
-                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                  className="absolute top-4 right-4 text-white"
                   onClick={handleClose}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
 
                 {/* Modal Body */}
-                <div className="bg-white rounded-xl">
-                  {/* First Row */}
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full sm:w-1/2 px-3">
-                      <label htmlFor="projectName" className="block text-gray-700">
-                        Project Name
-                      </label>
-                      <input
-                        type="text"
-                        id="projectName"
-                        name="projectName"
-                        value={formData.projectName}
-                        onChange={handleChange}
-                        placeholder="Enter project name"
-                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div className="w-full sm:w-1/2 px-3">
-                      <label htmlFor="date" className="block text-gray-700">
-                        Date
-                      </label>
-                      <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        value={formData.date}
-                        onChange={handleChange}
-                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Project Name */}
+                  <div className="space-y-1">
+                    <label htmlFor="projectName" className="block text-white text-lg font-bold tracking-wider">
+                      PROJECT NAME
+                    </label>
+                    <input
+                      type="text"
+                      id="projectName"
+                      name="projectName"
+                      value={formData.projectName}
+                      onChange={handleChange}
+                      placeholder="Enter project name"
+                      className="w-full bg-transparent border-b-2 border-white/70 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white"
+                    />
                   </div>
 
-                  {/* Second Row */}
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full sm:w-1/2 px-3">
-                      <label htmlFor="companyName" className="block text-gray-700">
-                        Company Name
-                      </label>
-                      <input
-                        type="text"
-                        id="companyName"
-                        name="companyName"
-                        value={formData.companyName}
-                        onChange={handleChange}
-                        placeholder="Enter company name"
-                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div className="w-full sm:w-1/2 px-3">
-                      <label htmlFor="email" className="block text-gray-700">
-                        Email Address of the Purchaser
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Enter email address"
-                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
+                  {/* Date */}
+                  <div className="space-y-1">
+                    <label htmlFor="date" className="block text-white text-lg font-bold tracking-wider">
+                      DATE
+                    </label>
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      value={formData.date}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-b-2 border-white/70 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white"
+                    />
                   </div>
 
-                  {/* Third Row */}
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    {/* BILL TO */}
-                    <div className="w-full sm:w-1/2 px-3">
-                      <h5 className="font-semibold text-gray-700">BILL TO</h5>
-                      <label htmlFor="billToName" className="block text-gray-700">
-                        Name
+                  {/* Company Name */}
+                  <div className="space-y-1">
+                    <label htmlFor="companyName" className="block text-white text-lg font-bold tracking-wider">
+                      COMPANY NAME
+                    </label>
+                    <input
+                      type="text"
+                      id="companyName"
+                      name="companyName"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      placeholder="Enter company name"
+                      className="w-full bg-transparent border-b-2 border-white/70 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className="space-y-1">
+                    <label htmlFor="email" className="block text-white text-lg font-bold tracking-wider">
+                      EMAIL ADDRESS OF THE PURCHASER
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter email"
+                      className="w-full bg-transparent border-b-2 border-white/70 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white"
+                    />
+                  </div>
+
+                  {/* BILL TO */}
+                  <div className="col-span-1 space-y-4">
+                    <h5 className="font-semibold text-white text-lg">BILL TO</h5>
+                    <div className="space-y-1">
+                      <label htmlFor="billToName" className="block text-white text-lg font-bold tracking-wider">
+                        NAME
                       </label>
                       <input
                         type="text"
@@ -1386,10 +1365,12 @@ const StartQuote = () => {
                         value={formData.billToName}
                         onChange={handleChange}
                         placeholder="Enter name"
-                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-transparent border-b-2 border-white/70 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white"
                       />
-                      <label htmlFor="billToAddress" className="block text-gray-700">
-                        Address
+                    </div>
+                    <div className="space-y-1">
+                      <label htmlFor="billToAddress" className="block text-white text-lg font-bold tracking-wider">
+                        ADDRESS
                       </label>
                       <input
                         type="text"
@@ -1398,15 +1379,17 @@ const StartQuote = () => {
                         value={formData.billToAddress}
                         onChange={handleChange}
                         placeholder="Enter address"
-                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-transparent border-b-2 border-white/70 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white"
                       />
                     </div>
+                  </div>
 
-                    {/* SHIP TO */}
-                    <div className="w-full sm:w-1/2 px-3">
-                      <h5 className="font-semibold text-gray-700">SHIP TO</h5>
-                      <label htmlFor="shipToName" className="block text-gray-700">
-                        Name
+                  {/* SHIP TO */}
+                  <div className="col-span-1 space-y-4">
+                    <h5 className="font-semibold text-white text-lg">SHIP TO</h5>
+                    <div className="space-y-1">
+                      <label htmlFor="shipToName" className="block text-white text-lg font-bold tracking-wider">
+                        NAME
                       </label>
                       <input
                         type="text"
@@ -1415,10 +1398,12 @@ const StartQuote = () => {
                         value={formData.shipToName}
                         onChange={handleChange}
                         placeholder="Enter name"
-                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-transparent border-b-2 border-white/70 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white"
                       />
-                      <label htmlFor="shipToAddress" className="block text-gray-700">
-                        Address
+                    </div>
+                    <div className="space-y-1">
+                      <label htmlFor="shipToAddress" className="block text-white text-lg font-bold tracking-wider">
+                        ADDRESS
                       </label>
                       <input
                         type="text"
@@ -1427,74 +1412,60 @@ const StartQuote = () => {
                         value={formData.shipToAddress}
                         onChange={handleChange}
                         placeholder="Enter address"
-                        className="my-3 w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-transparent border-b-2 border-white/70 py-2 text-white placeholder-white/50 focus:outline-none focus:border-white"
                       />
                     </div>
                   </div>
-
-                  {/* Checkboxes and Button */}
-                  <div className="flex flex-wrap -mx-3">
-                    <div className="w-full sm:w-1/2 px-3">
-                      <label className="flex items-center text-gray-700">
-                        <input
-                          type="checkbox"
-                          name="internalUse"
-                          checked={selectedValues === "Internal use"}
-                          value="Internal use"
-                          onChange={(e) =>
-                            setSelectedValues(
-                              e.target.checked ? e.target.value : ""
-                            )
-                          }
-                          className="mr-2"
-                        />
-                        Internal use
-                      </label>
-                    </div>
-                    <div className="w-full sm:w-1/2 px-3">
-                      <label className="flex items-center text-gray-700">
-                        <input
-                          type="checkbox"
-                          name="externalUse"
-                          checked={selectedValues === "External use"}
-                          value="External use"
-                          onChange={(e) =>
-                            setSelectedValues(
-                              e.target.checked ? e.target.value : ""
-                            )
-                          }
-                          className="mr-2"
-                        />
-                        External use
-                      </label>
-                    </div>
-                  </div>
-
-                  {selectedValues && (
-                    <button
-                      className=" bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg mt-4"
-                      type="button"
-                      onClick={handleGeneratePDF}
-                      disabled={loading2}
-                    >
-                      {loading2 ? (
-                        <>
-                          <span
-                            className="spinner-border spinner-border-sm mr-2"
-                            role="status"
-                            aria-hidden="true"
-                          ></span>
-                          Downloading...
-                        </>
-                      ) : (
-                        <>
-                          <i className="fas fa-file-pdf mr-2"></i> Download
-                        </>
-                      )}
-                    </button>
-                  )}
                 </div>
+
+                {/* Checkboxes */}
+                <div className="flex items-center space-x-6 my-6">
+                  <label className="flex items-center text-white text-lg font-bold tracking-wider">
+                    <input
+                      type="checkbox"
+                      name="internalUse"
+                      checked={selectedValues === "Internal use"}
+                      value="Internal use"
+                      onChange={(e) => setSelectedValues(e.target.checked ? e.target.value : "")}
+                      className="mr-2"
+                    />
+                    INTERNAL USE
+                  </label>
+                  <label className="flex items-center text-white text-lg font-bold tracking-wider">
+                    <input
+                      type="checkbox"
+                      name="externalUse"
+                      checked={selectedValues === "External use"}
+                      value="External use"
+                      onChange={(e) => setSelectedValues(e.target.checked ? e.target.value : "")}
+                      className="mr-2"
+                    />
+                    EXTERNAL USE
+                  </label>
+                </div>
+
+                {/* Download Button */}
+                {selectedValues && (
+                  <button
+                    className="bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg"
+                    type="button"
+                    onClick={handleGeneratePDF}
+                    disabled={loading2}
+                  >
+                    {loading2 ? (
+                      <>
+                        <span className="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>
+                        Downloading...
+                      </>
+                    ) : (
+                      <>
+                        <i className="fas fa-file-pdf mr-2"></i> Download
+                      </>
+                    )}
+                  </button>
+                )}
               </motion.div>
+
             </motion.div>
           )}
         </AnimatePresence>
