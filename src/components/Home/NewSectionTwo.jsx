@@ -1,6 +1,6 @@
 function NewSectionTwo() {
     return (
-        <section className="relative min-h-[600px] w-full bg-gradient-to-b from-[#00b4d8] to-[#0096c7] flex items-center justify-center p-8 overflow-hidden">
+        <section className="relative h-screen w-full bg-[radial-gradient(circle_at_center,_#00d1f7_0%,_#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center overflow-hidden">
             <div className="absolute top-[15%] left-1/2">
                 <img
                     src="/assets/section-two-ball.png"
