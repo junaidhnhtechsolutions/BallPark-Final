@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Particles from "../ui/particles";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -23,17 +22,9 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="flex justify-center items-center h-[100vh] bg-gradient-to-br from-[#00083c] via-[#73cddd] relative overflow-hidden">
-      <Particles
-        className="absolute inset-0 z-0"
-        quantity={150}
-        ease={100}
-        color={"#ffffff"}
-        refresh
-      />
-
+    <div className="relative h-screen w-full bg-[radial-gradient(circle_at_center,_#00d1f7_0%,_#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center overflow-hidden">
       <motion.div
-        className="relative z-10  rounded-lg shadow-2xl p-8 max-w-lg w-full"
+        className="relative z-10 max-w-lg w-full"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}

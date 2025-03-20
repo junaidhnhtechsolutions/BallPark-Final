@@ -1,15 +1,8 @@
-import Particles from "../ui/particles";
 
 const BallPark = () => {
   return (
-    <div className="flex justify-center items-center bg-gradient-to-br from-[#00083c] via-[#00083c] relative overflow-hidden">
-      <Particles
-        className="absolute inset-0 z-0"
-        quantity={150}
-        ease={100}
-        color={"#ffffff"}
-        refresh
-      />
+    <div className="relative h-screen w-full bg-[radial-gradient(circle_at_center,_#00d1f7_0%,_#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center overflow-hidden">
+
       <div className="text-center overflow-hidden  text-xl max-w-screen-2xl mx-auto w-[80%] flex flex-col justify-center items-center md:h-screen h-auto md:my-0 my-20">
         <div className="bg-gray-400  bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 text-white p-4 rounded-md">
           <h1 className="text-6xl mb-4">
