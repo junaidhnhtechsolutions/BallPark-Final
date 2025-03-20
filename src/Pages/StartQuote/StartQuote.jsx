@@ -857,7 +857,7 @@ const StartQuote = () => {
                         {!SelectSubStructure && (
                           <button
                             type="button"
-                            className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center"
+                            className=" bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg"
                             onClick={() => setSelectSubStructure(true)}
                           >
                             <FontAwesomeIcon icon={faPlus} /> Add Sub Structure
@@ -867,7 +867,7 @@ const StartQuote = () => {
                           <div className="text-center my-3">
                             <button
                               type="button"
-                              className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center"
+                              className=" bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg"
                               onClick={handleAddFields}
                             >
                               <FontAwesomeIcon icon={faPlus} /> Add Free Style
@@ -1010,7 +1010,7 @@ const StartQuote = () => {
                       </div>
                       {editMode && (
                         <button
-                          className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center ${loading1 ? "disabled" : ""
+                          className={`flex bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg ${loading1 ? "disabled" : ""
                             }`}
                           type="submit"
                           onClick={handleSave}
@@ -1039,14 +1039,14 @@ const StartQuote = () => {
                   <>
                     <div className="flex items-center md:flex-row flex-col text-center my-2 gap-4">
                       <button
-                        className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center`}
+                        className={`flex  bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
                         type="button"
                         onClick={handleShow}
                       >
                         Save PDF
                       </button>
                       <button
-                        className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center`}
+                        className={`flex  bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
                         type="button"
                       >
                         Email Suppliers
@@ -1162,7 +1162,7 @@ const StartQuote = () => {
                       <div className="text-center my-3">
                         <button
                           type="button"
-                          className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center"
+                          className=" bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg"
                           onClick={handleAddFields}
                         >
                           <FontAwesomeIcon icon={faPlus} /> Add Free Style
@@ -1232,14 +1232,14 @@ const StartQuote = () => {
                     )}
                     <div className="flex items-center md:flex-row flex-col text-center my-2 gap-4">
                       <button
-                        className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center`}
+                        className={`flex  bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
                         type="button"
                         onClick={handleShow}
                       >
                         Save PDF
                       </button>
                       <button
-                        className={`flex bg-gradient-to-br w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center`}
+                        className={`flex  bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg`}
                         type="button"
                       >
                         Email Suppliers
@@ -1259,7 +1259,7 @@ const StartQuote = () => {
               }`}
           >
             {key === "Ballpark 2.0 Pictures" && (
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-10">
                 <img src="/assets/dashboard/comming-soon.png" className="w-96" alt="" />
               </div>
             )}
@@ -1472,7 +1472,7 @@ const StartQuote = () => {
 
                   {selectedValues && (
                     <button
-                      className="bg-gradient-to-br block w-full py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold justify-center items-center mt-4"
+                      className=" bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors w-full rounded-lg mt-4"
                       type="button"
                       onClick={handleGeneratePDF}
                       disabled={loading2}

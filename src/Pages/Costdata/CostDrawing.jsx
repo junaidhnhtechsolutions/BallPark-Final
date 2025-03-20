@@ -616,7 +616,7 @@ const CostDrawing = () => {
 
       {loading && <Loader />}
       <div className="flex w-full flex-col min-h-screen items-center justify-center bg-[#00b4d8] relative overflow-hidden">
-     
+
         <motion.div
           className="w-full max-w-5xl relative flex items-center flex-col my-20"
           initial={{ opacity: 0 }}
@@ -963,14 +963,14 @@ const CostDrawing = () => {
                   <div className="flex justify-center mt-5 gap-5">
                     <button
                       type="button"
-                      className="bg-red-600 w-24 text-white py-3 rounded-lg border-none outline-none"
+                      className="bg-red-600  text-white py-3 px-12 border-none outline-none"
                       onClick={handleCancel}
                     >
                       Cancel
                     </button>
                     <button
                       type="button"
-                      className="bg-gradient-to-br block w-24 py-3 rounded-lg from-[#00083c] via-[#00083c] text-white font-semibold"
+                      className="bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors"
                       onClick={getimgdata}
                     >
                       Crop
