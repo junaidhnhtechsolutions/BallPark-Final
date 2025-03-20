@@ -7,7 +7,7 @@ function NewSectionThree() {
         <div className="absolute top-[15%] left-[8%]">
           <img
             src="/assets/section-three-one.png"
-            className="w-72"
+            className="w-72 2xl:w-96"
             alt="Bubble"
           />
         </div>
@@ -15,7 +15,7 @@ function NewSectionThree() {
         <div className="absolute top-[6%] left-[36%]">
           <img
             src="/assets/section-three-two.png"
-            className="w-72"
+            className="w-72 2xl:w-96"
             alt="Bubble"
           />
         </div>
@@ -24,7 +24,7 @@ function NewSectionThree() {
         <div className="absolute top-[18%] right-[10%]">
           <img
             src="/assets/section-three-three.png"
-            className="w-72"
+            className="w-72 2xl:w-96"
             alt="Bubble"
           />
         </div>
@@ -32,7 +32,7 @@ function NewSectionThree() {
         <div className="absolute bottom-[2%] left-[25%]">
           <img
             src="/assets/section-three-four.png"
-            className="w-72"
+            className="w-72 2xl:w-96"
             alt="Bubble"
           />
         </div>
@@ -46,13 +46,14 @@ function NewSectionThree() {
         <div className="absolute bottom-[2%] right-[20%]">
           <img
             src="/assets/section-three-five.png"
-            className="w-72"
+            className="w-72 2xl:w-96"
             alt="Bubble"
           />
         </div>
 
+
         <div className="absolute bottom-0 left-4">
-          <img src="/assets/section-two-men.png" className="w-56" alt="Baseball player silhouette" />
+          <img src="/assets/section-two-men.png" className="w-72" alt="Baseball player silhouette" />
         </div>
       </section>
     </>
