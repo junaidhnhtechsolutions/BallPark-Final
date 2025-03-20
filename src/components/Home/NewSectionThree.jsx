@@ -38,7 +38,9 @@ function NewSectionThree() {
         </div>
 
         <div className="text-center z-10 relative top-5 bottom-5">
-          <img src="/assets/section-two-text.png" className='max-w-3xl ' alt="" />
+          <h1 class="text-white text-center text-xl font-extrabold tracking-wide uppercase drop-shadow-md">
+            WHEN YOU'RE PITCHING FOR AN EVENT AND <br /> THE FOLLOWING HAPPENS...
+          </h1>
         </div>
 
         <div className="absolute bottom-[2%] right-[20%]">

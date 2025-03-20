@@ -34,14 +34,16 @@ function NewSectionTwo() {
             </div>
 
             <div className="flex justify-center z-10">
-                <img src="/assets/section-two-text.png" className="w-8/12" alt="" />
+                <h1 class="text-white text-center text-xl font-extrabold tracking-wide uppercase drop-shadow-md">
+                    WHEN YOU'RE PITCHING FOR AN EVENT AND <br /> THE FOLLOWING HAPPENS...
+                </h1>
             </div>
 
             <div className="absolute bottom-0 left-4">
-                <img src="/assets/section-two-men.png" className="w-56" alt="Baseball player silhouette" />
+                <img src="/assets/section-two-men.png" className="w-72" alt="Baseball player silhouette" />
             </div>
             <div className="absolute bottom-44 right-20">
-                <p className=" text-white text-xs font-medium">
+                <p className=" text-white text-[16px] font-medium">
                     (Annotation - it’s like all <br />
                     these balls to be gently <br />
                     shaking. as you scroll down <br />
