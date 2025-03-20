@@ -1,10 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./service.css";
-import Particles from "../../components/ui/particles";
-import { FaBasketballBall, FaHistory, FaProjectDiagram } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
-import { FaListUl } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 const Service = () => {
@@ -13,6 +9,12 @@ const Service = () => {
   const navigatePage = (url) => {
     navigate(url);
   };
+
+  const handleShowLogout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
+  };
+
 
   return (
     <>
@@ -32,8 +34,7 @@ const Service = () => {
               to={"/new-project"}
               className="flex flex-col justify-center items-center"
             >
-              <FaProjectDiagram className="text-5xl md:text-6xl mb-4 text-white" />
-              <h3 className="stylish-text text-lg md:text-xl">New Project</h3>
+              <h3 className="text-white text-lg md:text-2xl font-extrabold uppercase text-center">New Project</h3>
             </Link>
           </motion.div>
 
@@ -48,8 +49,7 @@ const Service = () => {
                 to={"/post-project"}
                 className="flex flex-col justify-center items-center"
               >
-                <FaHistory className="text-5xl md:text-6xl mb-4 text-white" />
-                <h3 className="stylish-text text-lg md:text-xl">Past Project</h3>
+                <h3 className="text-white text-lg md:text-2xl font-extrabold uppercase text-center">Past <br /> PRODUCTS</h3>
               </Link>
             </motion.div>
 
@@ -63,23 +63,7 @@ const Service = () => {
                 to={"/profile"}
                 className="flex flex-col justify-center items-center"
               >
-                <CgProfile className="text-5xl md:text-6xl mb-4 text-white" />
-                <h3 className="stylish-text text-lg md:text-xl">My Profile</h3>
-              </Link>
-            </motion.div>
-
-            <motion.div
-              className="bg-[#008cc2] border-2 border-white h-44 rounded-2xl flex justify-center items-center cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              onClick={() => navigatePage("/Ballpark-picture")}
-            >
-              <Link
-                to={"/Ballpark-picture"}
-                className="flex flex-col justify-center items-center"
-              >
-                <FaBasketballBall className="text-5xl md:text-6xl mb-4 text-white" />
-                <h3 className="stylish-text text-lg md:text-xl">Ballpark 2.0</h3>
+                <h3 className="text-white text-lg md:text-2xl font-extrabold uppercase text-center">Profile</h3>
               </Link>
             </motion.div>
 
@@ -93,10 +77,26 @@ const Service = () => {
                 to={"/material-list"}
                 className="flex flex-col justify-center items-center"
               >
-                <FaListUl className="text-5xl md:text-6xl mb-4 text-white" />
-                <h3 className="stylish-text text-lg md:text-xl">Materials List</h3>
+                <h3 className="text-white text-lg md:text-2xl font-extrabold uppercase text-center">
+                  Materials <br />
+                  SPREADSHEETT</h3>
               </Link>
             </motion.div>
+
+
+            <motion.div
+              className="bg-[#008cc2] border-2 border-white h-44 rounded-2xl flex justify-center items-center cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div
+                onClick={handleShowLogout}
+                className="flex flex-col justify-center items-center"
+              >
+                <h3 className="text-white text-lg md:text-2xl font-extrabold uppercase text-center">Log out</h3>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </div>
