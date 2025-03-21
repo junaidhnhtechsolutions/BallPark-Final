@@ -18,11 +18,11 @@ const Service = () => {
 
   return (
     <>
-      <section className="relative min-h-[600px] w-full bg-gradient-to-b from-[#00b4d8] to-[#0096c7] flex items-center justify-center p-8 flex-col">
+      <section className="relative min-h-[600px] w-full bg-[radial-gradient(circle_at_center,_#00d1f7_0%,_#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center p-8 flex-col">
         <img src="/assets/dashboard-one-text.png" className="w-6/12" alt="" />
         <img src="/assets/dashboard-one-img.png" className="w-6/12" alt="" />
       </section>
-      <div className="relative min-h-[600px] w-full bg-gradient-to-b from-[#00b4d8] to-[#0096c7] flex items-center justify-center p-8 flex-col">
+      <div className="relative min-h-[600px] w-full bg-[radial-gradient(circle_at_center,_#00d1f7_0%,_#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center p-8 flex-col">
         <div className="container mx-auto px-6 md:px-20 md:my-0 my-20 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 w-full">
           <motion.div
             className="bg-[#008cc2] border-2 border-white h-44 md:h-96 rounded-3xl flex justify-center items-center cursor-pointer"

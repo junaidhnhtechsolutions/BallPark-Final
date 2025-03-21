@@ -862,14 +862,14 @@ const CostDrawing = () => {
                   <div className="flex justify-center flex-col mt-4">
                     <button
                       onClick={toggleDrawingMode}
-                      className="text-center text-md text-blue-600 underline"
+                      className="text-center text-md text-white underline"
                     >
                       {isCurving ? "Draw Straight Line" : "Draw Curve"}
                     </button>
                     <div className="flex flex-wrap gap-2 justify-center mt-6">
                       <motion.button
                         type="button"
-                        className="border border-gray-400 text-black w-12 py-2 flex justify-center items-center rounded-lg focus:outline-none"
+                        className="border border-[#0077b6] text-black w-12 py-2 flex justify-center items-center rounded-lg focus:outline-none"
                         onClick={() => handleDeleteLastLine()}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
@@ -882,7 +882,7 @@ const CostDrawing = () => {
 
                       <motion.button
                         type="button"
-                        className="border border-gray-400 text-black w-12 py-2 flex justify-center items-center rounded-lg focus:outline-none"
+                        className="border border-[#0077b6] text-black w-12 py-2 flex justify-center items-center rounded-lg focus:outline-none"
                         onClick={() => handleUndoDelete()}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
@@ -895,7 +895,7 @@ const CostDrawing = () => {
 
                       <motion.button
                         type="button"
-                        className="border border-gray-400 text-black w-12 py-2 flex justify-center items-center rounded-lg focus:outline-none"
+                        className="border border-[#0077b6] text-black w-12 py-2 flex justify-center items-center rounded-lg focus:outline-none"
                         onClick={() => handleDownload()}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}

@@ -507,7 +507,7 @@ const MaterialComponent = ({
             <tbody>
               {materialCategoryName?.flatMap((category, index) =>
                 category?.map((items) => (
-                  <tr key={items?.id} className="border-b hover:bg-[#0077b6] text-white" ref={colorRef}>
+                  <tr key={items?.id} className="border-b  text-white" ref={colorRef}>
                     <td className="p-3">
                       {items?.image_url ? (
                         <BlobImage
