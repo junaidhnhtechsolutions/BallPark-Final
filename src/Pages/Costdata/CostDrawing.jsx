@@ -913,7 +913,7 @@ const CostDrawing = () => {
                 <>
                   <div className="flex justify-center gap-2 mt-4">
                     <button
-                      className="bg-gradient-to-br block w-56 py-3 rounded-xl from-[#00083c] via-[#00083c] text-white font-semibold"
+                      className="bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors rounded-lg"
                       type="button"
                       onClick={(e) => handleSave(e, "alpha")}
                       disabled={loading}
@@ -963,14 +963,14 @@ const CostDrawing = () => {
                   <div className="flex justify-center mt-5 gap-5">
                     <button
                       type="button"
-                      className="bg-red-600  text-white py-3 px-12 border-none outline-none"
+                      className="bg-red-600 text-white py-3 px-12 border-none outline-none rounded-lg"
                       onClick={handleCancel}
                     >
                       Cancel
                     </button>
                     <button
                       type="button"
-                      className="bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors"
+                      className="bg-[#0077b6] text-white font-bold py-3 px-12 text-lg tracking-wider hover:bg-[#0077b6]/80 transition-colors rounded-lg"
                       onClick={getimgdata}
                     >
                       Crop
