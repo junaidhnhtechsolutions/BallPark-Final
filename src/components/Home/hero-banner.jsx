@@ -12,7 +12,7 @@ export default function Herobanner() {
   const { showIntro } = useSelector((state) => state.loader);
   const [gifShow, setGifShow] = useState(false);
   const [startAnimation, setStartAnimation] = useState(false);
-  const [imageSrc, setImageSrc] = useState("/assets/banner3.jpg");
+  const [imageSrc, setImageSrc] = useState("/assets/banner.jpg");
 
   useLayoutEffect(() => {
     if (!startAnimation) return;
@@ -71,7 +71,7 @@ export default function Herobanner() {
       if (width <= 768) {
         setImageSrc("/assets/mobile.jpg");
       } else {
-        setImageSrc("/assets/banner3.jpg");
+        setImageSrc("/assets/banner.jpg");
       }
     };
     handleResize();

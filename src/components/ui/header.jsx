@@ -34,15 +34,14 @@ export default function Header() {
 
   return (
     <div className="fixed z-40 w-full">
-      <div className="md:w-[80%] w-full mx-auto bg-transparent text-white h-10">
-        <div className="font-signika absolute items-center text-xs top-4 flex justify-between md:w-[80%]
+      <div className="md:w-[90%] w-full mx-auto bg-transparent text-white h-10">
+        <div className="font-signika absolute items-center text-xs top-4 flex justify-between md:w-[90%]
         w-full logo text-center bg-transparent tracking-widest uppercase leading-[50px] font-bold md:px-0 px-2">
-          <div className="md:block hidden">{/*  */}</div>
           <Link
             to={"/"}
             className="cursor-pointer text-lg flex gap-2 items-center relative z-40"
           >
-            Ball Park
+            <img src="/assets/logo.png" className="w-20 h-20" alt="" />
           </Link>
           <div className="flex gap-4">
             <div className="flex gap-2 items-center justify-center relative">
@@ -50,12 +49,6 @@ export default function Header() {
                 <ToggleSwitch setOpen={handleToggleMenu} open={open} />
               </h1>
               {pathname?.includes('/login') ? '' : token ? (
-                // <p
-                //   onClick={handleShowLogout}
-                //   className="cursor-pointer bg-white text-black rounded-md w-24 h-10 flex justify-center items-center hover:bg-black hover:text-white transition-all"
-                // >
-                //   Logout
-                // </p>
                 <></>
               ) : (
                 <Link
