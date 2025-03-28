@@ -63,7 +63,7 @@ export default function Header() {
             <div
               ref={menuRef}
               className={cn(
-                "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] md:top-10 top-10 md:right-16 right-20 z-[99999]",
+                "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] md:top-14 top-10 md:right-36 right-20 z-[99999]",
                 open ? "w-[70%] md:w-[50%] lg:w-[30%]" : "w-0 h-0 "
               )}
             >
