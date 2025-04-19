@@ -78,7 +78,15 @@ function ScrollSections() {
 
   return (
     <div ref={containerRef} className="relative h-[400vh]">
-      <div className="sticky top-0 h-screen w-full bg-[radial-gradient(circle_at_center,_#00d1f7_0%,_#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center overflow-hidden">
+      {/* bg-[radial-gradient(circle_at_center,#00d1f7_0%,#00b4d8_30%,_#0096c7_80%)] */}
+      <div className="sticky top-0 h-screen w-full 
+       flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: 'url("/assets/img/banner/rotate-no.jpg")',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
+        }}
+      >
         <div className="absolute bottom-10 left-10 z-30">
           <motion.div
             className="flex flex-col items-center"

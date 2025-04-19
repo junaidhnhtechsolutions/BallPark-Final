@@ -152,18 +152,22 @@ export default function Herobanner() {
           </div>
         )}
 
-        <div className="relative h-screen w-full text-white">
+        <section className="relative h-screen w-full bg-[radial-gradient(circle_at_center,#00d1f7_0%,#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center overflow-hidden">
+          <div className="relative mx-auto">
+            <img src={imageSrc} alt="" className="w-full h-full" />
+          </div>
+        </section>
+
+        {/* <div className="relative h-screen w-full text-white  bg-[radial-gradient(circle_at_center,#00d1f7_0%,#00b4d8_30%,_#0096c7_80%)]">
           <img
             src={imageSrc}
             className="absolute top-0 left-0 w-full h-screen object-fill md:object-cover -z-10"
           />
-
           <div className="relative h-screen flex justify-center items-center">
             <div className="relative max-w-screen-2xl md:w-[30%] 2xl:w-[20%] mx-auto flex flex-col items-center justify-center h-screen z-30 pointer-events-auto">
-              {/*  */}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -1,15 +1,32 @@
-import React from 'react'
+import React from 'react';
 
 function NewSectionFive() {
   return (
-    <>
-      <section className="relative h-screen w-full bg-[radial-gradient(circle_at_center,_#00d1f7_0%,_#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center overflow-hidden">
-        <div className="relative mx-auto">
-          <img src="/assets/section-five-text.png" alt="" />
-        </div>
-      </section>
-    </>
-  )
+    <section
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
+      style={{
+        backgroundImage: 'url("/assets/img/banner/rotate-no.jpg")',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+      }}
+    >
+      <div
+        className="absolute inset-0 flex items-center justify-center max-h-[35rem]"
+        style={{
+          backgroundImage: 'url("/assets/vector.png")',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'contain',
+        }}
+      >
+        <h1 className="text-white text-center text-2xl md:text-3xl font-extrabold uppercase leading-relaxed px-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">
+          <span className="whitespace-pre-line text-shadow-heavy">
+            We've collaborated with top <br /> venues, set builders, florists, and <br /> AV companies to offer <br /> customisable, pre-costed event <br /> shells. Plus we've developed the <br /> world's first AI capable of <br /> estimating costs directly from <br /> images.
+          </span>
+        </h1>
+      </div>
+    </section>
+  );
 }
 
-export default NewSectionFive
+export default NewSectionFive;

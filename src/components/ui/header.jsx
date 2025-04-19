@@ -34,14 +34,14 @@ export default function Header() {
 
   return (
     <div className="fixed z-40 w-full">
-      <div className="md:w-[90%] w-full mx-auto bg-transparent text-white h-10">
-        <div className="font-signika absolute items-center text-xs top-4 flex justify-between md:w-[90%]
+      <div className="md:w-[95%] w-full mx-auto bg-transparent text-white h-10">
+        <div className="font-signika absolute items-center text-xs top-4 flex justify-between md:w-[95%]
         w-full logo text-center bg-transparent tracking-widest uppercase leading-[50px] font-bold md:px-0 px-2">
           <Link
             to={"/"}
             className="cursor-pointer text-lg flex gap-2 items-center relative z-40"
           >
-            <img src="/assets/logo.png" className="w-20 h-20" alt="" />
+            <img src="/assets/logo.png" className="w-16 h-16" alt="" />
           </Link>
           <div className="flex gap-4">
             <div className="flex gap-2 items-center justify-center relative">

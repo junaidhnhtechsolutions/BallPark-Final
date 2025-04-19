@@ -6,7 +6,15 @@ function NewSectionSix() {
 
   return (
     <>
-      <section className="relative h-screen w-full bg-[radial-gradient(circle_at_center,_#00d1f7_0%,_#00b4d8_30%,_#0096c7_80%)] flex items-center justify-center overflow-hidden">
+      {/* bg-[radial-gradient(circle_at_center,#00d1f7_0%,#00b4d8_30%,_#0096c7_80%)]  */}
+      <section className="relative h-screen w-full
+      flex items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: 'url("/assets/img/banner/rotate-yes.jpg")',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      }}
+      >
         <div className="relative mx-auto w-[60%] flex flex-col justify-center space-y-5">
           <h1 class="text-white text-center text-4xl font-extrabold tracking-wide uppercase drop-shadow-md">
             Try it for yourself, check out our example scenario under the “Navigating the Ballpark” tab — or simply click “Test Run” to explore it firsthand.
