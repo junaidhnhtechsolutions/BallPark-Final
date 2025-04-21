@@ -31,7 +31,7 @@ const Section2 = () => {
             <br />
             WORK?
           </h1>
-          <p className="text-[20px] font-semibold text-white max-w-2xl mx-auto">
+          <p className="text-[18px] font-semibold text-white max-w-2xl mx-auto">
             This not only provides a baseline understanding of costs but also <br />
             allows you to connect directly with suppliers that match your <br /> budget.
           </p>
@@ -44,10 +44,10 @@ const Section2 = () => {
             <img src="/assets/section-two-ball.png" className="w-24 h-20" alt="Bubble" />
           </motion.div>
 
-          <div className="space-y-16 relative">
+          <div className="space-y-24 relative">
             <div className="timeline-item flex items-center justify-center relative">
               <div className="w-1/2 pl-16 ml-auto">
-                <p className="text-[20px] font-semibold text-white">
+                <p className="text-[18px] font-semibold text-white">
                   Our website functions as a shopping list for ballpark costs, allowing you to effortlessly "add to
                   project" everything from venues and trade booths to floral arches. Plus, our one-of-a-kind AI can
                   generate baseline cost estimates for your own drawings.
@@ -56,7 +56,7 @@ const Section2 = () => {
             </div>
             <div className="timeline-item flex items-center justify-center relative mt-20">
               <div className="w-1/2 pl-16 ml-auto">
-                <p className="text-[20px] font-semibold text-white">
+                <p className="text-[18px] font-semibold text-white">
                   Once you have this ballpark cost for your event, you can use it as a foundation to refine your design,
                   incorporating bespoke finishes while keeping your baseline budget in mind.
                 </p>
@@ -64,7 +64,7 @@ const Section2 = () => {
             </div>
             <div className="timeline-item flex items-center justify-center relative mt-20 pb-10">
               <div className="w-1/2 pl-16 ml-auto">
-                <p className="text-[20px] font-semibold text-white">
+                <p className="text-[18px] font-semibold text-white">
                   Once you've completed this step, go to your Ballpark Quote and click "Email Suppliers." This will send
                   a blanket email from you to all the suppliers you've added to your project, including details of what
                   you're interested in. They will then respond, allowing you to update them with any bespoke changes
