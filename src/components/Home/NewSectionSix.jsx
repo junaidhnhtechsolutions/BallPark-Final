@@ -6,7 +6,6 @@ function NewSectionSix() {
 
   return (
     <>
-      {/* bg-[radial-gradient(circle_at_center,#00d1f7_0%,#00b4d8_30%,_#0096c7_80%)]  */}
       <section className="relative h-screen w-full
       flex items-center justify-center overflow-hidden"
       style={{
@@ -15,8 +14,8 @@ function NewSectionSix() {
         backgroundSize: 'cover'
       }}
       >
-        <div className="relative mx-auto w-[60%] flex flex-col justify-center space-y-5">
-          <h1 class="text-white text-center text-4xl font-extrabold tracking-wide uppercase drop-shadow-md">
+        <div className="relative mx-auto md:w-4/12 flex flex-col justify-center space-y-5">
+          <h1 class="text-white text-center text-xl font-extrabold tracking-wide uppercase drop-shadow-md">
             Try it for yourself, check out our example scenario under the “Navigating the Ballpark” tab — or simply click “Test Run” to explore it firsthand.
           </h1>
           {!token &&

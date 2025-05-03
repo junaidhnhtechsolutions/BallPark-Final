@@ -11,7 +11,7 @@ function NewSectionFive() {
       }}
     >
       <div
-        className="absolute inset-0 flex items-center justify-center max-h-[35rem]"
+        className="absolute inset-0 flex items-center justify-center max-h-[35rem] md:w-4/12 mx-auto"
         style={{
           backgroundImage: 'url("/assets/vector.png")',
           backgroundRepeat: 'no-repeat',
@@ -19,9 +19,9 @@ function NewSectionFive() {
           backgroundSize: 'contain',
         }}
       >
-        <h1 className="text-white text-center text-2xl md:text-3xl font-extrabold uppercase leading-relaxed px-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">
+        <h1 className="text-white text-center text-xl md:text-[23px] font-extrabold uppercase leading-relaxed px-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">
           <span className="whitespace-pre-line text-shadow-heavy">
-            We've collaborated with top <br /> venues, set builders, florists, and <br /> AV companies to offer <br /> customisable, pre-costed event <br /> shells. Plus we've developed the <br /> world's first AI capable of <br /> estimating costs directly from <br /> images.
+            We've collaborated with top <br /> venues, set builders, florists, <br /> and AV companies to offer <br /> customisable, pre-costed event <br /> shells. Plus we've developed the <br /> world's first AI capable of <br /> estimating costs directly from <br /> images.
           </span>
         </h1>
       </div>

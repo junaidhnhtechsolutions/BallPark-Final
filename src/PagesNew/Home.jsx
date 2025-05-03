@@ -103,7 +103,7 @@ function ScrollSections() {
           </motion.div>
         </div>
 
-        <div className="flex justify-center z-30">
+        <div className="flex justify-center z-30 mt-5">
           <motion.h1
             className="text-white text-center text-lg font-extrabold tracking-wide uppercase drop-shadow-md"
             initial={{ opacity: 0, y: 20 }}

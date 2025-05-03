@@ -11,7 +11,7 @@ function NewSectionOne() {
       }}
     >
       <div
-        className="absolute inset-0 flex items-center justify-center max-h-[35rem]"
+        className="absolute inset-0 flex items-center justify-center max-h-[35rem] md:w-4/12 mx-auto"
         style={{
           backgroundImage: 'url("/assets/vector.png")',
           backgroundRepeat: 'no-repeat',
@@ -19,9 +19,9 @@ function NewSectionOne() {
           backgroundSize: 'contain',
         }}
       >
-        <h1 className="text-white text-center text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase leading-relaxed px-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">
+        <h1 className="text-white text-center text-2xl md:text-2xl font-extrabold uppercase leading-relaxed px-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">
           <span className="whitespace-pre-line text-shadow-heavy">
-          WE WILL BALLPARK COST YOUR EVENT IN <br /> MINUTES.
+          WE WILL BALLPARK COST YOUR EVENT IN MINUTES.
           </span>
         </h1>
       </div>
