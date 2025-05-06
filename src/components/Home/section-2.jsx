@@ -24,7 +24,7 @@ const Section2 = () => {
         backgroundSize: "cover",
       }}
     >
-      <div className="container mx-auto px-4 py-16 relative">
+      <div className="container mx-auto px-4 md:py-32 relative">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white uppercase mb-6">
             BUT HOW WILL THIS
