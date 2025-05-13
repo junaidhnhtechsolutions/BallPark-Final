@@ -77,25 +77,109 @@ function ScrollSections() {
   ]
 
   return (
+    // <div ref={containerRef} className="relative h-[400vh]">
+    //   <div className="sticky top-0 h-screen w-full 
+    //    flex items-center justify-center overflow-hidden"
+    //     style={{
+    //       backgroundImage: 'url("/assets/img/banner/rotate-no.jpg")',
+    //       backgroundPosition: 'center',
+    //       backgroundSize: 'cover'
+    //     }}
+    //   >
+    //     <div className="absolute bottom-10 left-10 z-30">
+    //       <motion.div
+    //         className="flex flex-col items-center"
+    //         initial={{ x: -50, opacity: 0 }}
+    //         animate={{ x: 0, opacity: 1 }}
+    //         transition={{ duration: 0.8, delay: 0.5 }}
+    //       >
+    //         <img src="/assets/section-two-men.png" className="w-32" alt="Baseball player silhouette" />
+    //         <p className="text-white text-xs font-bold mt-2">
+    //           SCROLL DOWN
+    //           <br />
+    //           TO START
+    //         </p>
+    //       </motion.div>
+    //     </div>
+
+    //     <div className="flex justify-center z-30 mt-5">
+    //       <motion.h1
+    //         className="text-white text-center text-lg font-extrabold tracking-wide uppercase drop-shadow-md"
+    //         initial={{ opacity: 0, y: 20 }}
+    //         animate={{ opacity: 1, y: 0 }}
+    //         transition={{ duration: 0.8, delay: 0.3 }}
+    //       >
+    //         WHEN YOU'RE PITCHING FOR AN EVENT AND <br /> THE FOLLOWING HAPPENS...
+    //       </motion.h1>
+    //     </div>
+
+    //     {positions?.map((pos, index) => {
+    //       const positionStyle = {
+    //         position: "absolute",
+    //         top: pos?.top + "%",
+    //         left: pos?.left + "%",
+    //         right: pos?.right + "%",
+    //         transform: pos?.transform,
+    //       }
+
+    //       const positionStyleImage = {
+    //         position: "absolute",
+    //         top: pos?.top - 10 + "%",
+    //         left: pos?.left - 10 + "%",
+    //         right: pos?.right - 10 + "%",
+    //         transform: pos?.transform,
+    //       }
+    //       const transforms = ballTransforms[index]
+    //       return (
+    //         <React.Fragment key={index}>
+    //           <motion.div
+    //             style={{
+    //               ...positionStyle,
+    //               opacity: transforms?.ballOpacity,
+    //             }}
+    //           >
+    //             <img src={ballSrc || "/placeholder.svg"} className="w-20" alt="Blue ball" />
+    //           </motion.div>
+
+    //           <motion.div
+    //             style={{
+    //               ...positionStyleImage,
+    //               opacity: transforms?.imageOpacity,
+    //               scale: transforms?.imageScale,
+    //               rotate: transforms?.imageRotate,
+    //               transformOrigin: "center center",
+    //             }}
+    //           >
+    //             <img src={imageSources[index] || "/placeholder.svg"} className="w-72 2xl:w-96" alt="Explosion bubble" />
+    //           </motion.div>
+    //         </React.Fragment>
+    //       )
+    //     })}
+    //   </div>
+    // </div>
     <div ref={containerRef} className="relative h-[400vh]">
-      {/* bg-[radial-gradient(circle_at_center,#00d1f7_0%,#00b4d8_30%,_#0096c7_80%)] */}
-      <div className="sticky top-0 h-screen w-full 
-       flex items-center justify-center overflow-hidden"
+      <div
+        className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: 'url("/assets/img/banner/rotate-no.jpg")',
-          backgroundPosition: 'center',
-          backgroundSize: 'cover'
+          backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
       >
-        <div className="absolute bottom-10 left-10 z-30">
+        {/* Scroll hint bottom left */}
+        <div className="absolute bottom-5 left-4 md:left-10 z-30">
           <motion.div
             className="flex flex-col items-center"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <img src="/assets/section-two-men.png" className="w-32" alt="Baseball player silhouette" />
-            <p className="text-white text-xs font-bold mt-2">
+            <img
+              src="/assets/section-two-men.png"
+              className="w-20 md:w-32"
+              alt="Baseball player"
+            />
+            <p className="text-white text-[10px] md:text-xs font-bold mt-1 md:mt-2 text-center">
               SCROLL DOWN
               <br />
               TO START
@@ -103,61 +187,73 @@ function ScrollSections() {
           </motion.div>
         </div>
 
-        <div className="flex justify-center z-30 mt-5">
+        {/* Heading */}
+        <div className="flex justify-center z-30 mt-5 px-2">
           <motion.h1
-            className="text-white text-center text-lg font-extrabold tracking-wide uppercase drop-shadow-md"
+            className="text-white text-center text-sm md:text-lg font-extrabold tracking-wide uppercase drop-shadow-md leading-snug"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            WHEN YOU'RE PITCHING FOR AN EVENT AND <br /> THE FOLLOWING HAPPENS...
+            WHEN YOU'RE PITCHING FOR AN EVENT AND <br />
+            THE FOLLOWING HAPPENS...
           </motion.h1>
         </div>
 
-        {positions?.map((pos, index) => {
+        {/* Balls & Images */}
+        {positions.map((pos, index) => {
+          const transforms = ballTransforms[index];
           const positionStyle = {
-            position: "absolute",
-            top: pos?.top + "%",
-            left: pos?.left + "%",
-            right: pos?.right + "%",
-            transform: pos?.transform,
-          }
+            top: `${pos.top}%`,
+            left: pos.left !== undefined ? `${pos.left}%` : undefined,
+            right: pos.right !== undefined ? `${pos.right}%` : undefined,
+            transform: pos.transform,
+          };
+          const imageStyle = {
+            top: `${(pos.top || 0) - 10}%`,
+            left: pos.left !== undefined ? `${pos.left - 10}%` : undefined,
+            right: pos.right !== undefined ? `${pos.right - 10}%` : undefined,
+            transform: pos.transform,
+          };
 
-          const positionStyleImage = {
-            position: "absolute",
-            top: pos?.top - 10 + "%",
-            left: pos?.left - 10 + "%",
-            right: pos?.right - 10 + "%",
-            transform: pos?.transform,
-          }
-          const transforms = ballTransforms[index]
           return (
             <React.Fragment key={index}>
               <motion.div
+                className="absolute"
                 style={{
                   ...positionStyle,
-                  opacity: transforms?.ballOpacity,
+                  opacity: transforms.ballOpacity,
                 }}
               >
-                <img src={ballSrc || "/placeholder.svg"} className="w-20" alt="Blue ball" />
+                <img
+                  src={ballSrc || "/placeholder.svg"}
+                  className="w-16 md:w-20"
+                  alt="Blue ball"
+                />
               </motion.div>
 
               <motion.div
+                className="absolute"
                 style={{
-                  ...positionStyleImage,
-                  opacity: transforms?.imageOpacity,
-                  scale: transforms?.imageScale,
-                  rotate: transforms?.imageRotate,
+                  ...imageStyle,
+                  opacity: transforms.imageOpacity,
+                  scale: transforms.imageScale,
+                  rotate: transforms.imageRotate,
                   transformOrigin: "center center",
                 }}
               >
-                <img src={imageSources[index] || "/placeholder.svg"} className="w-72 2xl:w-96" alt="Explosion bubble" />
+                <img
+                  src={imageSources[index] || "/placeholder.svg"}
+                  className="w-48 md:w-72 2xl:w-96"
+                  alt="Explosion bubble"
+                />
               </motion.div>
             </React.Fragment>
-          )
+          );
         })}
       </div>
     </div>
+
   )
 }
 

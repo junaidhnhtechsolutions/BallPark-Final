@@ -38,15 +38,15 @@ const Section2 = () => {
         </div>
 
         <div className="relative" ref={containerRef}>
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-white"></div>
+          <div className="absolute md:left-1/2 left-6 transform -translate-x-1/2 h-full w-1 bg-white"></div>
 
-          <motion.div className="absolute left-1/2 transform -translate-x-1/2 z-10" style={{ top: ballY }}>
+          <motion.div className="absolute md:left-1/2 left-6 transform -translate-x-1/2 z-10" style={{ top: ballY }}>
             <img src="/assets/section-two-ball.png" className="w-24 h-20" alt="Bubble" />
           </motion.div>
 
           <div className="space-y-24 relative">
             <div className="timeline-item flex items-center justify-center relative">
-              <div className="w-1/2 pl-16 ml-auto">
+              <div className="md:w-1/2 pl-16 ml-auto">
                 <p className="text-[18px] font-semibold text-white">
                   Our website functions as a shopping list for ballpark costs, allowing you to effortlessly "add to
                   project" everything from venues and trade booths to floral arches. Plus, our one-of-a-kind AI can
@@ -55,15 +55,15 @@ const Section2 = () => {
               </div>
             </div>
             <div className="timeline-item flex items-center justify-center relative mt-20">
-              <div className="w-1/2 pl-16 ml-auto">
+              <div className="md:w-1/2 pl-16 ml-auto">
                 <p className="text-[18px] font-semibold text-white">
                   Once you have this ballpark cost for your event, you can use it as a foundation to refine your design,
                   incorporating bespoke finishes while keeping your baseline budget in mind.
                 </p>
               </div>
             </div>
-            <div className="timeline-item flex items-center justify-center relative mt-20 pb-10">
-              <div className="w-1/2 pl-16 ml-auto">
+            <div className="timeline-item flex items-center justify-center relative mt-20">
+              <div className="md:w-1/2 pl-16 ml-auto">
                 <p className="text-[18px] font-semibold text-white">
                   Once you've completed this step, go to your Ballpark Quote and click "Email Suppliers." This will send
                   a blanket email from you to all the suppliers you've added to your project, including details of what
