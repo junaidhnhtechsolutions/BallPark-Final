@@ -128,7 +128,7 @@ function DesktopScrollSections() {
                                         opacity: transforms.ballOpacity,
                                     }}
                                 >
-                                    <img src={ballSrc || "/placeholder.svg"} className="w-16 md:w-20" alt="Blue ball" />
+                                    <img src={ballSrc || "/placeholder.svg"} className="w-16" alt="Blue ball" />
                                 </motion.div>
 
                                 <motion.div
@@ -143,7 +143,7 @@ function DesktopScrollSections() {
                                 >
                                     <img
                                         src={imageSources[index] || "/placeholder.svg"}
-                                        className="w-48 md:w-72 2xl:w-96"
+                                        className="w-48 md:w-64 2xl:w-96"
                                         alt="Explosion bubble"
                                     />
                                 </motion.div>

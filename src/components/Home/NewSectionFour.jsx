@@ -16,7 +16,7 @@ function NewSectionFour() {
             NO MORE!
           </span>
         </h1>
-        <h1 className="text-white text-center text-xl md:text-xl font-extrabold uppercase leading-relaxed px-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">
+        <h1 className="text-white text-center text-sm md:text-lg font-extrabold tracking-wide uppercase drop-shadow-md leading-snug">
           <span className="whitespace-pre-line text-shadow-heavy">
             IN EVENTS TIME IS ONE OF THE MOST EXPENSIVE RESOURCES. <br /> WHETHER IT BE BEING FAST ENOUGH TO WIN THE JOB OR HIRING <br /> PEOPLE TO HELP YOU WIN IT.
           </span>

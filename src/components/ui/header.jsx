@@ -1,4 +1,4 @@
-import ToggleSwitch from "./hamburger";
+// import ToggleSwitch from "./hamburger";
 import { useState, useRef } from "react";
 import { cn } from "../../lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -17,14 +17,14 @@ export default function Header() {
     }
   };
 
-  const handleToggleMenu = () => {
-    setOpen((prevState) => !prevState);
-  };
+  // const handleToggleMenu = () => {
+  //   setOpen((prevState) => !prevState);
+  // };
 
-  const handleShowLogout = () => {
-    localStorage.clear();
-    window.location.href = "/login";
-  };
+  // const handleShowLogout = () => {
+  //   localStorage.clear();
+  //   window.location.href = "/login";
+  // };
 
   document.addEventListener("mousedown", handleClickOutside);
   if (typeof window !== "undefined") {
@@ -41,14 +41,19 @@ export default function Header() {
             to={"/"}
             className="cursor-pointer text-lg flex gap-2 items-center relative z-40"
           >
-            <img src="/assets/logo.png" className="w-16 h-16" alt="" />
+            <img src="/assets/logo.png" className="w-12 h-12" alt="" />
           </Link>
           <div className="flex gap-4">
             <div className="flex gap-2 items-center justify-center relative">
               <h1 className="cursor-pointer relative z-40" ref={toggleRef}>
-                <ToggleSwitch setOpen={handleToggleMenu} open={open} />
+                {/* <ToggleSwitch setOpen={handleToggleMenu} open={open} /> */}
+                <img src="/assets/vector-white.png"
+                  onClick={() => setOpen(!open)}
+                  className="w-12 h-12"
+                  alt=""
+                />
               </h1>
-              {pathname?.includes('/login') ? '' : token ? (
+              {/* {pathname?.includes('/login') ? '' : token ? (
                 <></>
               ) : (
                 <Link
@@ -57,13 +62,13 @@ export default function Header() {
                 >
                   Join Us
                 </Link>
-              )}
+              )} */}
             </div>
 
             <div
               ref={menuRef}
               className={cn(
-                "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] md:top-14 top-10 md:right-36 right-20 z-[99999]",
+                "absolute rounded-md text-black  transition-all transform ease-in-out duration-500 bg-gradient-to-t from-[#DEFBFF] to-[#F0FBFF] md:top-14 top-10 md:right-16 right-20 z-[99999]",
                 open ? "w-[70%] md:w-[50%] lg:w-[30%]" : "w-0 h-0 "
               )}
             >
@@ -117,6 +122,12 @@ export default function Header() {
                     Contact Us
                   </Link>
                 </h4>
+                <Link
+                  to={"/login"}
+                  className="bg-white text-black rounded-md w-24 h-10 flex justify-center items-center hover:bg-black hover:text-white transition-all"
+                >
+                  Join Us
+                </Link>
               </div>
             </div>
           </div>

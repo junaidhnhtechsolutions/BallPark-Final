@@ -16,16 +16,9 @@ const Section2 = () => {
   )
 
   return (
-    <div
-      className="w-full min-h-screen"
-      style={{
-        backgroundImage: 'url("/assets/img/banner/rotate-no.jpg")',
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
-    >
+    <div className="w-full min-h-screen">
       <div className="container mx-auto px-4 md:py-32 relative">
-        <div className="text-center mb-16">
+        <div className="text-center my-8">
           <h1 className="text-4xl md:text-5xl font-bold text-white uppercase mb-6">
             BUT HOW WILL THIS
             <br />
@@ -41,7 +34,7 @@ const Section2 = () => {
           <div className="absolute md:left-1/2 left-6 transform -translate-x-1/2 h-full w-1 bg-white"></div>
 
           <motion.div className="absolute md:left-1/2 left-6 transform -translate-x-1/2 z-10" style={{ top: ballY }}>
-            <img src="/assets/section-two-ball.png" className="w-24 h-20" alt="Bubble" />
+            <img src="/assets/section-two-ball.png" className="w-16" alt="Bubble" />
           </motion.div>
 
           <div className="space-y-24 relative">

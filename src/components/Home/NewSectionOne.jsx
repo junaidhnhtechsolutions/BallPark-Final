@@ -11,7 +11,7 @@ function NewSectionOne() {
       }}
     >
       <div
-        className="absolute inset-0 flex items-center justify-center max-h-[35rem] md:w-4/12 mx-auto"
+        className="absolute top-0 inset-0 flex items-center justify-center max-h-[35rem] md:w-4/12 mx-auto"
         style={{
           backgroundImage: 'url("/assets/vector.png")',
           backgroundRepeat: 'no-repeat',

@@ -60,10 +60,12 @@ const Home = () => {
         <div>
           <HomeSliderSection />
         </div>
-        <div id="about">
+        <div id="about" style={{
+          backgroundImage: 'url("/assets/img/banner/rotate-no.jpg")',
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}>
           <Section2 />
-        </div>
-        <div>
           <NewSectionSix />
         </div>
       </div>
