@@ -122,12 +122,16 @@ export default function Header() {
                     Contact Us
                   </Link>
                 </h4>
-                <Link
-                  to={"/login"}
-                  className="bg-white text-black rounded-md w-24 h-10 flex justify-center items-center hover:bg-black hover:text-white transition-all"
-                >
-                  Join Us
-                </Link>
+                {pathname?.includes('/login') ? '' : token ? (
+                  <></>
+                ) : (
+                  <Link
+                    to={"/login"}
+                    className="bg-black text-white rounded-md w-24 h-10 flex justify-center items-center hover:bg-white hover:text-black transition-all mt-5"
+                  >
+                    Join Us
+                  </Link>
+                )}
               </div>
             </div>
           </div>
